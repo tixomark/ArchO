@@ -9,21 +9,53 @@
 /* Begin PBXBuildFile section */
 		9DC48FB32A48D39B0021362D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FB22A48D39B0021362D /* AppDelegate.swift */; };
 		9DC48FB52A48D39B0021362D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FB42A48D39B0021362D /* SceneDelegate.swift */; };
-		9DC48FB72A48D39B0021362D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FB62A48D39B0021362D /* ViewController.swift */; };
-		9DC48FBA2A48D39B0021362D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC48FB82A48D39B0021362D /* Main.storyboard */; };
 		9DC48FBC2A48D39C0021362D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DC48FBB2A48D39C0021362D /* Assets.xcassets */; };
 		9DC48FBF2A48D39C0021362D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC48FBD2A48D39C0021362D /* LaunchScreen.storyboard */; };
+		9DC48FCB2A4EB0070021362D /* Service+Prot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FCA2A4EB0070021362D /* Service+Prot.swift */; };
+		9DC48FCD2A4EB4D20021362D /* ServiceInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FCC2A4EB4D20021362D /* ServiceInjector.swift */; };
+		9DC48FD12A4EC1060021362D /* FBAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FD02A4EC1060021362D /* FBAuth.swift */; };
+		9DC48FD32A4EC12F0021362D /* FirestoreDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FD22A4EC12F0021362D /* FirestoreDB.swift */; };
+		9DC48FD52A4EC17A0021362D /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FD42A4EC17A0021362D /* DataStore.swift */; };
+		9DC48FE02A58A6310021362D /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FDF2A58A6310021362D /* CoordinatorProtocol.swift */; };
+		9DC48FE22A58A6BD0021362D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FE12A58A6BD0021362D /* MainCoordinator.swift */; };
+		9DC48FEB2A58A9A60021362D /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FEA2A58A9A60021362D /* ProfileCoordinator.swift */; };
+		9DC48FED2A58A9B10021362D /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FEC2A58A9B10021362D /* SettingsCoordinator.swift */; };
+		9DC48FEF2A58A9BB0021362D /* CardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FEE2A58A9BB0021362D /* CardCoordinator.swift */; };
+		9DC48FF12A58A9C80021362D /* MessagesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FF02A58A9C80021362D /* MessagesCoordinator.swift */; };
+		9DC48FF82A58AD010021362D /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FF72A58AD010021362D /* MainVC.swift */; };
+		9DC48FFA2A5FF4940021362D /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FF92A5FF4940021362D /* SettingsVC.swift */; };
+		9DC490002A604DE20021362D /* CardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FFF2A604DE20021362D /* CardVC.swift */; };
+		9DC490022A6054DA0021362D /* MessagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC490012A6054DA0021362D /* MessagesVC.swift */; };
+		9DC490042A605AEA0021362D /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC490032A605AEA0021362D /* ProfileVC.swift */; };
+		9DC490062A609E930021362D /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC490052A609E930021362D /* ProfileInteractor.swift */; };
+		9DC490082A609ECB0021362D /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC490072A609ECB0021362D /* ProfilePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9DC48FAF2A48D39B0021362D /* ArchO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArchO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC48FB22A48D39B0021362D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DC48FB42A48D39B0021362D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9DC48FB62A48D39B0021362D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9DC48FB92A48D39B0021362D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DC48FBB2A48D39C0021362D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DC48FBE2A48D39C0021362D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DC48FC02A48D39C0021362D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DC48FCA2A4EB0070021362D /* Service+Prot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service+Prot.swift"; sourceTree = "<group>"; };
+		9DC48FCC2A4EB4D20021362D /* ServiceInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInjector.swift; sourceTree = "<group>"; };
+		9DC48FD02A4EC1060021362D /* FBAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBAuth.swift; sourceTree = "<group>"; };
+		9DC48FD22A4EC12F0021362D /* FirestoreDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreDB.swift; sourceTree = "<group>"; };
+		9DC48FD42A4EC17A0021362D /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		9DC48FDF2A58A6310021362D /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		9DC48FE12A58A6BD0021362D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		9DC48FEA2A58A9A60021362D /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		9DC48FEC2A58A9B10021362D /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		9DC48FEE2A58A9BB0021362D /* CardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCoordinator.swift; sourceTree = "<group>"; };
+		9DC48FF02A58A9C80021362D /* MessagesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCoordinator.swift; sourceTree = "<group>"; };
+		9DC48FF72A58AD010021362D /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		9DC48FF92A5FF4940021362D /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		9DC48FFF2A604DE20021362D /* CardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVC.swift; sourceTree = "<group>"; };
+		9DC490012A6054DA0021362D /* MessagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVC.swift; sourceTree = "<group>"; };
+		9DC490032A605AEA0021362D /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		9DC490052A609E930021362D /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		9DC490072A609ECB0021362D /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +90,93 @@
 			children = (
 				9DC48FB22A48D39B0021362D /* AppDelegate.swift */,
 				9DC48FB42A48D39B0021362D /* SceneDelegate.swift */,
-				9DC48FB62A48D39B0021362D /* ViewController.swift */,
-				9DC48FB82A48D39B0021362D /* Main.storyboard */,
+				9DC48FE92A58A9890021362D /* Service */,
+				9DC48FE82A58A94E0021362D /* Protocols */,
+				9DC48FE72A58A93E0021362D /* MainModule */,
+				9DC48FE62A58A9150021362D /* ProfileModule */,
+				9DC48FE32A58A8D00021362D /* MessagesModule */,
+				9DC48FE42A58A8F00021362D /* CardModule */,
+				9DC48FE52A58A90B0021362D /* SettingsModule */,
 				9DC48FBB2A48D39C0021362D /* Assets.xcassets */,
 				9DC48FBD2A48D39C0021362D /* LaunchScreen.storyboard */,
 				9DC48FC02A48D39C0021362D /* Info.plist */,
 			);
 			path = ArchO;
+			sourceTree = "<group>";
+		};
+		9DC48FD62A4EC18C0021362D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9DC48FD02A4EC1060021362D /* FBAuth.swift */,
+				9DC48FD22A4EC12F0021362D /* FirestoreDB.swift */,
+				9DC48FD42A4EC17A0021362D /* DataStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9DC48FE32A58A8D00021362D /* MessagesModule */ = {
+			isa = PBXGroup;
+			children = (
+				9DC48FF02A58A9C80021362D /* MessagesCoordinator.swift */,
+				9DC490012A6054DA0021362D /* MessagesVC.swift */,
+			);
+			path = MessagesModule;
+			sourceTree = "<group>";
+		};
+		9DC48FE42A58A8F00021362D /* CardModule */ = {
+			isa = PBXGroup;
+			children = (
+				9DC48FEE2A58A9BB0021362D /* CardCoordinator.swift */,
+				9DC48FFF2A604DE20021362D /* CardVC.swift */,
+			);
+			path = CardModule;
+			sourceTree = "<group>";
+		};
+		9DC48FE52A58A90B0021362D /* SettingsModule */ = {
+			isa = PBXGroup;
+			children = (
+				9DC48FEC2A58A9B10021362D /* SettingsCoordinator.swift */,
+				9DC48FF92A5FF4940021362D /* SettingsVC.swift */,
+			);
+			path = SettingsModule;
+			sourceTree = "<group>";
+		};
+		9DC48FE62A58A9150021362D /* ProfileModule */ = {
+			isa = PBXGroup;
+			children = (
+				9DC48FEA2A58A9A60021362D /* ProfileCoordinator.swift */,
+				9DC490032A605AEA0021362D /* ProfileVC.swift */,
+				9DC490052A609E930021362D /* ProfileInteractor.swift */,
+				9DC490072A609ECB0021362D /* ProfilePresenter.swift */,
+			);
+			path = ProfileModule;
+			sourceTree = "<group>";
+		};
+		9DC48FE72A58A93E0021362D /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				9DC48FE12A58A6BD0021362D /* MainCoordinator.swift */,
+				9DC48FF72A58AD010021362D /* MainVC.swift */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		9DC48FE82A58A94E0021362D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9DC48FDF2A58A6310021362D /* CoordinatorProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9DC48FE92A58A9890021362D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9DC48FCA2A4EB0070021362D /* Service+Prot.swift */,
+				9DC48FCC2A4EB4D20021362D /* ServiceInjector.swift */,
+				9DC48FD62A4EC18C0021362D /* Services */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +239,6 @@
 			files = (
 				9DC48FBF2A48D39C0021362D /* LaunchScreen.storyboard in Resources */,
 				9DC48FBC2A48D39C0021362D /* Assets.xcassets in Resources */,
-				9DC48FBA2A48D39B0021362D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +249,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DC48FB72A48D39B0021362D /* ViewController.swift in Sources */,
+				9DC48FE22A58A6BD0021362D /* MainCoordinator.swift in Sources */,
+				9DC48FD12A4EC1060021362D /* FBAuth.swift in Sources */,
+				9DC48FFA2A5FF4940021362D /* SettingsVC.swift in Sources */,
+				9DC490022A6054DA0021362D /* MessagesVC.swift in Sources */,
+				9DC48FD52A4EC17A0021362D /* DataStore.swift in Sources */,
+				9DC48FD32A4EC12F0021362D /* FirestoreDB.swift in Sources */,
 				9DC48FB32A48D39B0021362D /* AppDelegate.swift in Sources */,
+				9DC48FF82A58AD010021362D /* MainVC.swift in Sources */,
+				9DC48FE02A58A6310021362D /* CoordinatorProtocol.swift in Sources */,
+				9DC490062A609E930021362D /* ProfileInteractor.swift in Sources */,
+				9DC48FEF2A58A9BB0021362D /* CardCoordinator.swift in Sources */,
 				9DC48FB52A48D39B0021362D /* SceneDelegate.swift in Sources */,
+				9DC490002A604DE20021362D /* CardVC.swift in Sources */,
+				9DC490042A605AEA0021362D /* ProfileVC.swift in Sources */,
+				9DC48FF12A58A9C80021362D /* MessagesCoordinator.swift in Sources */,
+				9DC48FCB2A4EB0070021362D /* Service+Prot.swift in Sources */,
+				9DC48FED2A58A9B10021362D /* SettingsCoordinator.swift in Sources */,
+				9DC48FEB2A58A9A60021362D /* ProfileCoordinator.swift in Sources */,
+				9DC490082A609ECB0021362D /* ProfilePresenter.swift in Sources */,
+				9DC48FCD2A4EB4D20021362D /* ServiceInjector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9DC48FB82A48D39B0021362D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9DC48FB92A48D39B0021362D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9DC48FBD2A48D39C0021362D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,9 +412,8 @@
 				INFOPLIST_FILE = ArchO/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +421,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DFA.ArchO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,9 +442,8 @@
 				INFOPLIST_FILE = ArchO/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +451,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DFA.ArchO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
