@@ -7,12 +7,15 @@
 
 import Foundation
 
+
 protocol FBAuthProtocol{
     
 }
 
+
+
+
 class FBAuth: FBAuthProtocol, ServiceProtocol {
     var description: String = "FBAuth"
-    
     
 }

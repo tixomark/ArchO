@@ -29,6 +29,12 @@
 		9DC490042A605AEA0021362D /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC490032A605AEA0021362D /* ProfileVC.swift */; };
 		9DC490062A609E930021362D /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC490052A609E930021362D /* ProfileInteractor.swift */; };
 		9DC490082A609ECB0021362D /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC490072A609ECB0021362D /* ProfilePresenter.swift */; };
+		9DC4900A2A6156790021362D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DC490092A6156790021362D /* GoogleService-Info.plist */; };
+		9DC4900D2A6157510021362D /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC4900C2A6157510021362D /* FirebaseAnalyticsSwift */; };
+		9DC4900F2A6157510021362D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC4900E2A6157510021362D /* FirebaseAuth */; };
+		9DC490112A6157510021362D /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC490102A6157510021362D /* FirebaseDatabaseSwift */; };
+		9DC490132A6157510021362D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC490122A6157510021362D /* FirebaseFirestoreSwift */; };
+		9DC490152A6157510021362D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC490142A6157510021362D /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +62,7 @@
 		9DC490032A605AEA0021362D /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		9DC490052A609E930021362D /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
 		9DC490072A609ECB0021362D /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		9DC490092A6156790021362D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +70,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC490112A6157510021362D /* FirebaseDatabaseSwift in Frameworks */,
+				9DC4900D2A6157510021362D /* FirebaseAnalyticsSwift in Frameworks */,
+				9DC4900F2A6157510021362D /* FirebaseAuth in Frameworks */,
+				9DC490152A6157510021362D /* FirebaseStorage in Frameworks */,
+				9DC490132A6157510021362D /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +112,7 @@
 				9DC48FBB2A48D39C0021362D /* Assets.xcassets */,
 				9DC48FBD2A48D39C0021362D /* LaunchScreen.storyboard */,
 				9DC48FC02A48D39C0021362D /* Info.plist */,
+				9DC490092A6156790021362D /* GoogleService-Info.plist */,
 			);
 			path = ArchO;
 			sourceTree = "<group>";
@@ -195,6 +208,13 @@
 			dependencies = (
 			);
 			name = ArchO;
+			packageProductDependencies = (
+				9DC4900C2A6157510021362D /* FirebaseAnalyticsSwift */,
+				9DC4900E2A6157510021362D /* FirebaseAuth */,
+				9DC490102A6157510021362D /* FirebaseDatabaseSwift */,
+				9DC490122A6157510021362D /* FirebaseFirestoreSwift */,
+				9DC490142A6157510021362D /* FirebaseStorage */,
+			);
 			productName = ArchO;
 			productReference = 9DC48FAF2A48D39B0021362D /* ArchO.app */;
 			productType = "com.apple.product-type.application";
@@ -223,6 +243,9 @@
 				Base,
 			);
 			mainGroup = 9DC48FA62A48D39B0021362D;
+			packageReferences = (
+				9DC4900B2A6157510021362D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 9DC48FB02A48D39B0021362D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -239,6 +262,7 @@
 			files = (
 				9DC48FBF2A48D39C0021362D /* LaunchScreen.storyboard in Resources */,
 				9DC48FBC2A48D39C0021362D /* Assets.xcassets in Resources */,
+				9DC4900A2A6156790021362D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +506,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9DC4900B2A6157510021362D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9DC4900C2A6157510021362D /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DC4900B2A6157510021362D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		9DC4900E2A6157510021362D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DC4900B2A6157510021362D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		9DC490102A6157510021362D /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DC4900B2A6157510021362D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		9DC490122A6157510021362D /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DC4900B2A6157510021362D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		9DC490142A6157510021362D /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DC4900B2A6157510021362D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9DC48FA72A48D39B0021362D /* Project object */;
 }
