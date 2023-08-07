@@ -48,7 +48,6 @@ class AuthCoordinator: ChildCoordinator, ServiceDistributor {
 
 extension AuthCoordinator: AuthCordinatorFinishProtocol {
     func didEndAuth() {
-        rootController = nil
         parentCoordinator.childDidFinish(self)
     }
 }

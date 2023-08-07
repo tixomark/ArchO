@@ -41,11 +41,7 @@ extension SignInPresenter: SignInPresenterInput {
     func loginValidationResult(_ value: Bool) {
         isLoginValid = value
         view?.updateAccordingToLoginValidation(result: value)
-        if isAuthPossible {
-            view?.activateSignInButton()
-        } else {
-            view?.deactivateSignInButton()
-        }
+        isAuthPossible ? view?.activateSignInButton() : view?.deactivateSignInButton()
     }
     
     func passwordValidationResult(_ value: Bool) {
