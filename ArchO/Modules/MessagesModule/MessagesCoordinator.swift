@@ -13,7 +13,7 @@ protocol MessagesCoordinatorProtocol {
 }
 
 class MessagesCoordinator: ChildCoordinator {
-    var parentCoordinator: ParentCoordinator?
+    var parentCoordinator: ParentCoordinator
     var rootController: UINavigationController!
     
     init (parent: ParentCoordinator) {
@@ -24,7 +24,7 @@ class MessagesCoordinator: ChildCoordinator {
         let messagesVC = MessagesVC()
         messagesVC.coordinator = self
         rootController = UINavigationController(rootViewController: messagesVC)
-        parentCoordinator?.rootController.present(rootController, animated: true)
+        parentCoordinator.rootController.present(rootController, animated: true)
     }
     
     deinit {
@@ -35,7 +35,7 @@ class MessagesCoordinator: ChildCoordinator {
 
 extension MessagesCoordinator: MessagesCoordinatorProtocol {
     func didEndMessages() {
-        parentCoordinator?.childDidFinish(self)
+        parentCoordinator.childDidFinish(self)
         rootController = nil
     }
     

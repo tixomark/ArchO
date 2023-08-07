@@ -8,7 +8,7 @@
 import Foundation
 
 enum Service {
-    case network, datastore, auth, firestore, router
+    case network, datastore, auth, firestore
 }
 
 protocol ServiceProtocol: CustomStringConvertible {
@@ -18,4 +18,8 @@ protocol ServiceProtocol: CustomStringConvertible {
 protocol ServiceObtainable {
     var neededServices: [Service] {get}
     func addServices(_ services: [Service: ServiceProtocol])
+}
+
+protocol ServiceDistributor {
+    var serviceInjector: ServiceInjector? {get}
 }

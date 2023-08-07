@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9DAF8A422A657D6300FCD25E /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF8A412A657D6300FCD25E /* SignInVC.swift */; };
+		9DAF8A502A6C46AE00FCD25E /* SignInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF8A4F2A6C46AE00FCD25E /* SignInInteractor.swift */; };
+		9DAF8A522A6C46C100FCD25E /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF8A512A6C46C100FCD25E /* SignInPresenter.swift */; };
+		9DAF8A552A716A9C00FCD25E /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF8A542A716A9C00FCD25E /* Evaluator.swift */; };
+		9DAF8A572A71742800FCD25E /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF8A562A71742800FCD25E /* MainInteractor.swift */; };
+		9DAF8A592A71743300FCD25E /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF8A582A71743300FCD25E /* MainPresenter.swift */; };
+		9DBE1F002A81334D00EBFCFA /* AuthNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBE1EFF2A81334D00EBFCFA /* AuthNC.swift */; };
 		9DC48FB32A48D39B0021362D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FB22A48D39B0021362D /* AppDelegate.swift */; };
 		9DC48FB52A48D39B0021362D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FB42A48D39B0021362D /* SceneDelegate.swift */; };
 		9DC48FBC2A48D39C0021362D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DC48FBB2A48D39C0021362D /* Assets.xcassets */; };
@@ -35,9 +42,21 @@
 		9DC490112A6157510021362D /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC490102A6157510021362D /* FirebaseDatabaseSwift */; };
 		9DC490132A6157510021362D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC490122A6157510021362D /* FirebaseFirestoreSwift */; };
 		9DC490152A6157510021362D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC490142A6157510021362D /* FirebaseStorage */; };
+		9DC4901D2A6166640021362D /* ImageNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4901C2A6166640021362D /* ImageNames.swift */; };
+		9DC4901F2A6168080021362D /* UICollor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4901E2A6168080021362D /* UICollor.swift */; };
+		9DC4902E2A616F400021362D /* AuthOptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4902D2A616F400021362D /* AuthOptionVC.swift */; };
+		9DC490302A616F560021362D /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4902F2A616F560021362D /* AuthCoordinator.swift */; };
+		9DC490322A6171AE0021362D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC490312A6171AE0021362D /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9DAF8A412A657D6300FCD25E /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		9DAF8A4F2A6C46AE00FCD25E /* SignInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
+		9DAF8A512A6C46C100FCD25E /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
+		9DAF8A542A716A9C00FCD25E /* Evaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluator.swift; sourceTree = "<group>"; };
+		9DAF8A562A71742800FCD25E /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		9DAF8A582A71743300FCD25E /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		9DBE1EFF2A81334D00EBFCFA /* AuthNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNC.swift; sourceTree = "<group>"; };
 		9DC48FAF2A48D39B0021362D /* ArchO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArchO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC48FB22A48D39B0021362D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DC48FB42A48D39B0021362D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +82,11 @@
 		9DC490052A609E930021362D /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
 		9DC490072A609ECB0021362D /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		9DC490092A6156790021362D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9DC4901C2A6166640021362D /* ImageNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNames.swift; sourceTree = "<group>"; };
+		9DC4901E2A6168080021362D /* UICollor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollor.swift; sourceTree = "<group>"; };
+		9DC4902D2A616F400021362D /* AuthOptionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthOptionVC.swift; sourceTree = "<group>"; };
+		9DC4902F2A616F560021362D /* AuthCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		9DC490312A6171AE0021362D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +105,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9DAF8A532A6C46D200FCD25E /* SignInSection */ = {
+			isa = PBXGroup;
+			children = (
+				9DAF8A412A657D6300FCD25E /* SignInVC.swift */,
+				9DAF8A4F2A6C46AE00FCD25E /* SignInInteractor.swift */,
+				9DAF8A512A6C46C100FCD25E /* SignInPresenter.swift */,
+			);
+			path = SignInSection;
+			sourceTree = "<group>";
+		};
+		9DAF8A5A2A717FC800FCD25E /* SignUpSection */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SignUpSection;
+			sourceTree = "<group>";
+		};
 		9DC48FA62A48D39B0021362D = {
 			isa = PBXGroup;
 			children = (
@@ -104,11 +145,8 @@
 				9DC48FB42A48D39B0021362D /* SceneDelegate.swift */,
 				9DC48FE92A58A9890021362D /* Service */,
 				9DC48FE82A58A94E0021362D /* Protocols */,
-				9DC48FE72A58A93E0021362D /* MainModule */,
-				9DC48FE62A58A9150021362D /* ProfileModule */,
-				9DC48FE32A58A8D00021362D /* MessagesModule */,
-				9DC48FE42A58A8F00021362D /* CardModule */,
-				9DC48FE52A58A90B0021362D /* SettingsModule */,
+				9DC490212A616C5C0021362D /* Modules */,
+				9DC4901B2A61663C0021362D /* Extensions+ */,
 				9DC48FBB2A48D39C0021362D /* Assets.xcassets */,
 				9DC48FBD2A48D39C0021362D /* LaunchScreen.storyboard */,
 				9DC48FC02A48D39C0021362D /* Info.plist */,
@@ -170,6 +208,8 @@
 			children = (
 				9DC48FE12A58A6BD0021362D /* MainCoordinator.swift */,
 				9DC48FF72A58AD010021362D /* MainVC.swift */,
+				9DAF8A562A71742800FCD25E /* MainInteractor.swift */,
+				9DAF8A582A71743300FCD25E /* MainPresenter.swift */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -177,6 +217,7 @@
 		9DC48FE82A58A94E0021362D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				9DC48FCA2A4EB0070021362D /* Service+Prot.swift */,
 				9DC48FDF2A58A6310021362D /* CoordinatorProtocol.swift */,
 			);
 			path = Protocols;
@@ -185,11 +226,47 @@
 		9DC48FE92A58A9890021362D /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				9DC48FCA2A4EB0070021362D /* Service+Prot.swift */,
 				9DC48FCC2A4EB4D20021362D /* ServiceInjector.swift */,
 				9DC48FD62A4EC18C0021362D /* Services */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		9DC4901B2A61663C0021362D /* Extensions+ */ = {
+			isa = PBXGroup;
+			children = (
+				9DC4901C2A6166640021362D /* ImageNames.swift */,
+				9DAF8A542A716A9C00FCD25E /* Evaluator.swift */,
+				9DC4901E2A6168080021362D /* UICollor.swift */,
+				9DC490312A6171AE0021362D /* UIView.swift */,
+			);
+			name = "Extensions+";
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9DC490212A616C5C0021362D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				9DC48FE72A58A93E0021362D /* MainModule */,
+				9DC4902C2A616F0D0021362D /* AuthModule */,
+				9DC48FE62A58A9150021362D /* ProfileModule */,
+				9DC48FE32A58A8D00021362D /* MessagesModule */,
+				9DC48FE42A58A8F00021362D /* CardModule */,
+				9DC48FE52A58A90B0021362D /* SettingsModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		9DC4902C2A616F0D0021362D /* AuthModule */ = {
+			isa = PBXGroup;
+			children = (
+				9DC4902F2A616F560021362D /* AuthCoordinator.swift */,
+				9DBE1EFF2A81334D00EBFCFA /* AuthNC.swift */,
+				9DC4902D2A616F400021362D /* AuthOptionVC.swift */,
+				9DAF8A532A6C46D200FCD25E /* SignInSection */,
+				9DAF8A5A2A717FC800FCD25E /* SignUpSection */,
+			);
+			path = AuthModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,25 +350,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC4902E2A616F400021362D /* AuthOptionVC.swift in Sources */,
 				9DC48FE22A58A6BD0021362D /* MainCoordinator.swift in Sources */,
 				9DC48FD12A4EC1060021362D /* FBAuth.swift in Sources */,
 				9DC48FFA2A5FF4940021362D /* SettingsVC.swift in Sources */,
+				9DAF8A592A71743300FCD25E /* MainPresenter.swift in Sources */,
 				9DC490022A6054DA0021362D /* MessagesVC.swift in Sources */,
 				9DC48FD52A4EC17A0021362D /* DataStore.swift in Sources */,
+				9DAF8A422A657D6300FCD25E /* SignInVC.swift in Sources */,
 				9DC48FD32A4EC12F0021362D /* FirestoreDB.swift in Sources */,
 				9DC48FB32A48D39B0021362D /* AppDelegate.swift in Sources */,
+				9DBE1F002A81334D00EBFCFA /* AuthNC.swift in Sources */,
 				9DC48FF82A58AD010021362D /* MainVC.swift in Sources */,
 				9DC48FE02A58A6310021362D /* CoordinatorProtocol.swift in Sources */,
+				9DAF8A522A6C46C100FCD25E /* SignInPresenter.swift in Sources */,
 				9DC490062A609E930021362D /* ProfileInteractor.swift in Sources */,
+				9DAF8A502A6C46AE00FCD25E /* SignInInteractor.swift in Sources */,
 				9DC48FEF2A58A9BB0021362D /* CardCoordinator.swift in Sources */,
 				9DC48FB52A48D39B0021362D /* SceneDelegate.swift in Sources */,
 				9DC490002A604DE20021362D /* CardVC.swift in Sources */,
+				9DAF8A552A716A9C00FCD25E /* Evaluator.swift in Sources */,
 				9DC490042A605AEA0021362D /* ProfileVC.swift in Sources */,
 				9DC48FF12A58A9C80021362D /* MessagesCoordinator.swift in Sources */,
+				9DC4901D2A6166640021362D /* ImageNames.swift in Sources */,
+				9DC4901F2A6168080021362D /* UICollor.swift in Sources */,
 				9DC48FCB2A4EB0070021362D /* Service+Prot.swift in Sources */,
+				9DAF8A572A71742800FCD25E /* MainInteractor.swift in Sources */,
 				9DC48FED2A58A9B10021362D /* SettingsCoordinator.swift in Sources */,
+				9DC490322A6171AE0021362D /* UIView.swift in Sources */,
 				9DC48FEB2A58A9A60021362D /* ProfileCoordinator.swift in Sources */,
 				9DC490082A609ECB0021362D /* ProfilePresenter.swift in Sources */,
+				9DC490302A616F560021362D /* AuthCoordinator.swift in Sources */,
 				9DC48FCD2A4EB4D20021362D /* ServiceInjector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

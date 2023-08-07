@@ -13,7 +13,7 @@ protocol ProfileCoordinatorProtocol {
 }
 
 class ProfileCoordinator: ChildCoordinator {
-    var parentCoordinator: ParentCoordinator?
+    var parentCoordinator: ParentCoordinator
     var rootController: UINavigationController!
     
     init (parent: ParentCoordinator) {
@@ -29,7 +29,7 @@ class ProfileCoordinator: ChildCoordinator {
         interactor.presenter = presenter
         presenter.view = profileVC
         rootController = UINavigationController(rootViewController: profileVC)
-        parentCoordinator?.rootController.present(rootController, animated: true)
+        parentCoordinator.rootController.present(rootController, animated: true)
     }
     
     deinit {
@@ -40,7 +40,7 @@ class ProfileCoordinator: ChildCoordinator {
 
 extension ProfileCoordinator: ProfileCoordinatorProtocol {
     func didEndProfile() {
-        parentCoordinator?.childDidFinish(self)
+        parentCoordinator.childDidFinish(self)
         rootController = nil
     }
 }

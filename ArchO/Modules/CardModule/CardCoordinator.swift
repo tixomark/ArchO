@@ -13,7 +13,7 @@ protocol CardCoordinatorProtocol {
 }
 
 class CardCoordinator: ChildCoordinator {
-    var parentCoordinator: ParentCoordinator?
+    var parentCoordinator: ParentCoordinator
     var rootController: UINavigationController!
     
     init (parent: ParentCoordinator) {
@@ -24,7 +24,7 @@ class CardCoordinator: ChildCoordinator {
         let cardVC = CardVC()
         cardVC.coordinator = self
         rootController = UINavigationController(rootViewController: cardVC)
-        parentCoordinator?.rootController.present(rootController, animated: true)
+        parentCoordinator.rootController.present(rootController, animated: true)
     }
     
     
@@ -37,7 +37,7 @@ class CardCoordinator: ChildCoordinator {
 
 extension CardCoordinator: CardCoordinatorProtocol {
     func didEndCard() {
-        parentCoordinator?.childDidFinish(self)
+        parentCoordinator.childDidFinish(self)
         rootController = nil
     }
 }

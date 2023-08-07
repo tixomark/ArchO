@@ -14,7 +14,7 @@ protocol SettingsCoordinatorProtocol: AnyObject {
 
 class SettingsCoordinator: ChildCoordinator {
     var rootController: UINavigationController!
-    weak var parentCoordinator: ParentCoordinator?
+    var parentCoordinator: ParentCoordinator
     
     init (parent: ParentCoordinator) {
         parentCoordinator = parent
@@ -24,7 +24,7 @@ class SettingsCoordinator: ChildCoordinator {
         let settingsVC = SettingsVC()
         settingsVC.coordinator = self
         rootController = UINavigationController(rootViewController: settingsVC)
-        parentCoordinator?.rootController.present(rootController, animated: true)
+        parentCoordinator.rootController.present(rootController, animated: true)
     }
     
     
@@ -36,7 +36,7 @@ class SettingsCoordinator: ChildCoordinator {
 
 extension SettingsCoordinator: SettingsCoordinatorProtocol {
     func didEndSettings() {
-        parentCoordinator?.childDidFinish(self)
+        parentCoordinator.childDidFinish(self)
         rootController.viewControllers = []
     }
 }

@@ -23,6 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
 
         let mainCoordinator = MainCoordinator()
+        let serviceInjector = ServiceInjector()
+        mainCoordinator.serviceInjector = serviceInjector
         window?.rootViewController = mainCoordinator.rootController
         mainCoordinator.start()
     }

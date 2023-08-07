@@ -8,19 +8,21 @@
 import Foundation
 import UIKit
 
-protocol MainVCProtocol {
-    var coordinator: MainCoordinatorProtocol! {get set}
+protocol MainVCInput {
+    func goToProfileSection()
+    func goToAuthSection()
 }
 
-class MainVC: UIViewController, MainVCProtocol {
+class MainVC: UIViewController {
     var coordinator: MainCoordinatorProtocol!
+    var interactor: MainInteractorInput!
     var messagesButton, cardButton, settingsButton, profileButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.isNavigationBarHidden = true
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .gray
         
         setUpUI()
         setUpConstraints()
@@ -81,17 +83,28 @@ class MainVC: UIViewController, MainVCProtocol {
     }
     
     @objc func didTapOnMessagesButton(_ sender: UIButton) {
-        coordinator.didTapMessagesButton()
+        coordinator.showMessagesScreen()
+        
     }
     @objc func didTapOnCardButton(_ sender: UIButton) {
-        coordinator.didTapAddCardButton()
+        coordinator.showCardScreen()
     }
     @objc func didTapOnSettingsButton(_ sender: UIButton) {
-        coordinator.didTapSettingsButton()
+        coordinator.showSettingsScreen()
     }
     @objc func didTapOnProfileButton(_ sender: UIButton) {
-        coordinator.didTapProfileButton()
+        interactor.didTapUserIcon()
     }
-    
 }
 
+extension MainVC: MainVCInput {
+    func goToProfileSection() {
+        coordinator.showProfileScreen()
+    }
+    
+    func goToAuthSection() {
+        coordinator.showAuthScreen()
+    }
+    
+    
+}
