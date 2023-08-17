@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D7AA3622A854865005E0755 /* SignUpOptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7AA3612A854865005E0755 /* SignUpOptionVC.swift */; };
+		9D7AA3642A8564CD005E0755 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7AA3632A8564CD005E0755 /* SignUpVC.swift */; };
+		9D7AA3662A85671C005E0755 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7AA3652A85671C005E0755 /* SignUpInteractor.swift */; };
+		9D7AA3682A856754005E0755 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7AA3672A856754005E0755 /* SignUpPresenter.swift */; };
 		9DAF8A422A657D6300FCD25E /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF8A412A657D6300FCD25E /* SignInVC.swift */; };
 		9DAF8A502A6C46AE00FCD25E /* SignInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF8A4F2A6C46AE00FCD25E /* SignInInteractor.swift */; };
 		9DAF8A522A6C46C100FCD25E /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF8A512A6C46C100FCD25E /* SignInPresenter.swift */; };
@@ -50,6 +54,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D7AA3612A854865005E0755 /* SignUpOptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOptionVC.swift; sourceTree = "<group>"; };
+		9D7AA3632A8564CD005E0755 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		9D7AA3652A85671C005E0755 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
+		9D7AA3672A856754005E0755 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		9DAF8A412A657D6300FCD25E /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		9DAF8A4F2A6C46AE00FCD25E /* SignInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
 		9DAF8A512A6C46C100FCD25E /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
@@ -118,6 +126,10 @@
 		9DAF8A5A2A717FC800FCD25E /* SignUpSection */ = {
 			isa = PBXGroup;
 			children = (
+				9D7AA3612A854865005E0755 /* SignUpOptionVC.swift */,
+				9D7AA3632A8564CD005E0755 /* SignUpVC.swift */,
+				9D7AA3652A85671C005E0755 /* SignUpInteractor.swift */,
+				9D7AA3672A856754005E0755 /* SignUpPresenter.swift */,
 			);
 			name = SignUpSection;
 			sourceTree = "<group>";
@@ -364,8 +376,11 @@
 				9DC48FF82A58AD010021362D /* MainVC.swift in Sources */,
 				9DC48FE02A58A6310021362D /* CoordinatorProtocol.swift in Sources */,
 				9DAF8A522A6C46C100FCD25E /* SignInPresenter.swift in Sources */,
+				9D7AA3622A854865005E0755 /* SignUpOptionVC.swift in Sources */,
 				9DC490062A609E930021362D /* ProfileInteractor.swift in Sources */,
+				9D7AA3642A8564CD005E0755 /* SignUpVC.swift in Sources */,
 				9DAF8A502A6C46AE00FCD25E /* SignInInteractor.swift in Sources */,
+				9D7AA3682A856754005E0755 /* SignUpPresenter.swift in Sources */,
 				9DC48FEF2A58A9BB0021362D /* CardCoordinator.swift in Sources */,
 				9DC48FB52A48D39B0021362D /* SceneDelegate.swift in Sources */,
 				9DC490002A604DE20021362D /* CardVC.swift in Sources */,
@@ -381,6 +396,7 @@
 				9DC48FEB2A58A9A60021362D /* ProfileCoordinator.swift in Sources */,
 				9DC490082A609ECB0021362D /* ProfilePresenter.swift in Sources */,
 				9DC490302A616F560021362D /* AuthCoordinator.swift in Sources */,
+				9D7AA3662A85671C005E0755 /* SignUpInteractor.swift in Sources */,
 				9DC48FCD2A4EB4D20021362D /* ServiceInjector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

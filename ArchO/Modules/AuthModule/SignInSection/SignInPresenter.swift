@@ -26,10 +26,6 @@ class SignInPresenter {
         isLoginValid && isPasswordValid
     }
     
-    init() {
-        
-    }
-    
     deinit {
         print("deinit SignInPresenter")
     }

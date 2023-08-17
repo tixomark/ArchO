@@ -31,10 +31,13 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .archoBackgroundColor
-        view.layer.cornerRadius = 20
         
         setUpUI()
         setUpConstraints()
+    }
+    
+    deinit {
+        print("deinit SignInVC")
     }
     
     private func setUpUI() {
@@ -114,10 +117,7 @@ class SignInVC: UIViewController {
         interactor?.trySignInUsing(login: loginTF.text ?? "",
                                    password: passwordTF.text ?? "")
     }
-    
-    deinit {
-        print("deinit SignInVC")
-    }
+
 }
 
 extension SignInVC: SignInVCInput {

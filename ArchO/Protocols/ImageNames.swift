@@ -10,7 +10,8 @@ import Foundation
 typealias IN = ImageNames
 
 enum ImageNames: String {
-    case profileImage = "profileIcon"
-    
+    case profileImage = "profileImage"
+    case profileIcon = "profileIcon"
+    case regIcon = "registrationIcon"
     
 }

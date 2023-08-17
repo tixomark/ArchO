@@ -17,9 +17,7 @@ class AuthOptionVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .archoBackgroundColor
-        view.layer.cornerRadius = 20
         setUpUI()
         setUpConstraints()
         
@@ -80,11 +78,11 @@ class AuthOptionVC: UIViewController {
     }
     
     @objc func didTapSignInOption() {
-        coordinator.goToSignInScreen()
+        coordinator.goToSignInSection()
     }
     
     @objc func didTapSignUpOption() {
-        coordinator.goToSignUpScreen()
+        coordinator.goToSignUpSection()
     }
 }
 

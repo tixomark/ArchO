@@ -8,7 +8,7 @@
 import Foundation
 
 struct Evaluator {
-    static let emailRegEx = try! NSRegularExpression(pattern: ##"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{6,64}"##, options: .caseInsensitive)
+    static let emailRegEx = try! NSRegularExpression(pattern: ##"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,10}"##, options: .caseInsensitive)
     static let passwordRegEx = try! NSRegularExpression(pattern: ##"[a-zA-Z0-9!"#$%&'()*+,-./:;<=>?@\[\]^_`{|}~]{8,32}"##, options: .caseInsensitive)
     
     func isValidEmail(_ email: String) -> Bool {

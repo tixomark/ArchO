@@ -9,13 +9,18 @@ import Foundation
 import UIKit
 
 protocol AuthCordinatorFinishProtocol: AnyObject {
-    func didEndAuth()
+    func dismissModule()
 }
 
-protocol AuthCoordinatorProtocol: AnyObject {
-    func goToSignInScreen()
-    func goToSignUpScreen()
-    func dismissModule()
+protocol AuthCoordinatorProtocol: AuthCordinatorFinishProtocol, AnyObject {
+    func goToSignInSection()
+    func goToSignUpSection()
+    
+}
+
+protocol AuthCoordinatorSignUpProtocol: AuthCordinatorFinishProtocol, AnyObject {
+    func goToEmailSignUpScreen()
+    func goToEmailVerificationScreen()
     
 }
 
@@ -47,14 +52,14 @@ class AuthCoordinator: ChildCoordinator, ServiceDistributor {
 }
 
 extension AuthCoordinator: AuthCordinatorFinishProtocol {
-    func didEndAuth() {
+    func dismissModule() {
         parentCoordinator.childDidFinish(self)
+        rootController.dismiss(animated: true)
     }
 }
 
 extension AuthCoordinator: AuthCoordinatorProtocol {
-    
-    func goToSignInScreen() {
+    func goToSignInSection() {
         let signInVC = SignInVC()
         let interactor = SignInInteractor()
         let presenter = SignInPresenter()
@@ -66,13 +71,28 @@ extension AuthCoordinator: AuthCoordinatorProtocol {
         rootController?.pushViewController(signInVC, animated: true)
     }
     
-    func goToSignUpScreen() {
+    func goToSignUpSection() {
+        let signUpVC = SignUpOptionVC()
+        signUpVC.coordinator = self
+        rootController.pushViewController(signUpVC, animated: true)
+    }
+
+}
+
+extension AuthCoordinator: AuthCoordinatorSignUpProtocol {
+    func goToEmailSignUpScreen() {
+        let signUpVC = SignUpVC()
+        let interactor = SignUpInteractor()
+        let presenter = SignUpPresenter()
+        signUpVC.coordinator = self
+        signUpVC.interactor = interactor
+        interactor.presenter = presenter
+        presenter.view = signUpVC
+        serviceInjector?.injectServices(forObject: interactor)
+        rootController.pushViewController(signUpVC, animated: true)
+    }
+    
+    func goToEmailVerificationScreen() {
         
     }
-    
-    func dismissModule() {
-        rootController.dismiss(animated: true)
-        didEndAuth()
-    }
-    
 }

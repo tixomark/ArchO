@@ -10,9 +10,15 @@ import UIKit
 class AuthNC: UINavigationController {
     weak var coordinator: AuthCordinatorFinishProtocol?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.layer.cornerRadius = 20
+        
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        coordinator?.didEndAuth()
+        coordinator?.dismissModule()
     }
 
 }
