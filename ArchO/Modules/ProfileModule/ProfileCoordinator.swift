@@ -8,19 +8,30 @@
 import Foundation
 import UIKit
 
-protocol ProfileCoordinatorProtocol {
-    func didEndProfile()
+
+protocol ProfileCoordinatorFinishProtocol: AnyObject {
+    func dismissModule()
 }
 
-class ProfileCoordinator: ChildCoordinator {
+protocol ProfileCoordinatorProtocol: ProfileCoordinatorFinishProtocol, AnyObject {
+    func showUserInfoSection()
+}
+
+class ProfileCoordinator: ChildCoordinator, ServiceDistributor {
     var parentCoordinator: ParentCoordinator
     var rootController: UINavigationController!
+    var serviceInjector: ServiceInjector?
     
     init (parent: ParentCoordinator) {
+        rootController = ProfileNC()
         parentCoordinator = parent
+        if let parent = parent as? ServiceDistributor {
+            serviceInjector = parent.serviceInjector
+        }
     }
     
     func start() {
+        (rootController as! ProfileNC).coordinator = self
         let profileVC = ProfileVC()
         let interactor = ProfileInteractor()
         let presenter = ProfilePresenter()
@@ -28,7 +39,9 @@ class ProfileCoordinator: ChildCoordinator {
         profileVC.interactor = interactor
         interactor.presenter = presenter
         presenter.view = profileVC
-        rootController = UINavigationController(rootViewController: profileVC)
+        serviceInjector?.injectServices(forObject: interactor)
+        rootController.viewControllers = [profileVC]
+        rootController?.modalPresentationStyle = .pageSheet
         parentCoordinator.rootController.present(rootController, animated: true)
     }
     
@@ -38,9 +51,23 @@ class ProfileCoordinator: ChildCoordinator {
     
 }
 
-extension ProfileCoordinator: ProfileCoordinatorProtocol {
-    func didEndProfile() {
+extension ProfileCoordinator: ProfileCoordinatorFinishProtocol {
+    func dismissModule() {
         parentCoordinator.childDidFinish(self)
-        rootController = nil
+        rootController.dismiss(animated: true)
+    }
+}
+
+extension ProfileCoordinator: ProfileCoordinatorProtocol {
+    func showUserInfoSection() {
+        let userInfoVC = UserInfoVC()
+        let interactor = UserInfoInteractor()
+        let presenter = UserInfoPresenter()
+        userInfoVC.coordinator = self
+        userInfoVC.interactor = interactor
+        interactor.presenter = presenter
+        presenter.view = userInfoVC
+        serviceInjector?.injectServices(forObject: interactor)
+        rootController.pushViewController(userInfoVC, animated: true)
     }
 }

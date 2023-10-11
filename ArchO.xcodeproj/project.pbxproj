@@ -11,6 +11,10 @@
 		9D7AA3642A8564CD005E0755 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7AA3632A8564CD005E0755 /* SignUpVC.swift */; };
 		9D7AA3662A85671C005E0755 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7AA3652A85671C005E0755 /* SignUpInteractor.swift */; };
 		9D7AA3682A856754005E0755 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7AA3672A856754005E0755 /* SignUpPresenter.swift */; };
+		9D7AA36B2A8FAF86005E0755 /* ProfileNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7AA36A2A8FAF86005E0755 /* ProfileNC.swift */; };
+		9D7AA36D2A8FC5D9005E0755 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7AA36C2A8FC5D9005E0755 /* CardCell.swift */; };
+		9D7AA3702A962075005E0755 /* DBUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7AA36F2A962075005E0755 /* DBUserManager.swift */; };
+		9DADBC642AA1F545002B3C6F /* DBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DADBC632AA1F545002B3C6F /* DBUser.swift */; };
 		9DAF8A422A657D6300FCD25E /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF8A412A657D6300FCD25E /* SignInVC.swift */; };
 		9DAF8A502A6C46AE00FCD25E /* SignInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF8A4F2A6C46AE00FCD25E /* SignInInteractor.swift */; };
 		9DAF8A522A6C46C100FCD25E /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF8A512A6C46C100FCD25E /* SignInPresenter.swift */; };
@@ -18,6 +22,11 @@
 		9DAF8A572A71742800FCD25E /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF8A562A71742800FCD25E /* MainInteractor.swift */; };
 		9DAF8A592A71743300FCD25E /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF8A582A71743300FCD25E /* MainPresenter.swift */; };
 		9DBE1F002A81334D00EBFCFA /* AuthNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBE1EFF2A81334D00EBFCFA /* AuthNC.swift */; };
+		9DC1D4AA2A9F51AE008B118A /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1D4A92A9F51AE008B118A /* UserInfoVC.swift */; };
+		9DC1D4AC2A9F51C3008B118A /* UserInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1D4AB2A9F51C3008B118A /* UserInfoInteractor.swift */; };
+		9DC1D4AE2A9F51CD008B118A /* UserInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1D4AD2A9F51CD008B118A /* UserInfoPresenter.swift */; };
+		9DC1D4B02A9F5C34008B118A /* UserInfoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1D4AF2A9F5C34008B118A /* UserInfoTextField.swift */; };
+		9DC1D4B22AA11D2F008B118A /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1D4B12AA11D2F008B118A /* UserInfoCell.swift */; };
 		9DC48FB32A48D39B0021362D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FB22A48D39B0021362D /* AppDelegate.swift */; };
 		9DC48FB52A48D39B0021362D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC48FB42A48D39B0021362D /* SceneDelegate.swift */; };
 		9DC48FBC2A48D39C0021362D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DC48FBB2A48D39C0021362D /* Assets.xcassets */; };
@@ -58,6 +67,10 @@
 		9D7AA3632A8564CD005E0755 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		9D7AA3652A85671C005E0755 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		9D7AA3672A856754005E0755 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		9D7AA36A2A8FAF86005E0755 /* ProfileNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNC.swift; sourceTree = "<group>"; };
+		9D7AA36C2A8FC5D9005E0755 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		9D7AA36F2A962075005E0755 /* DBUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUserManager.swift; sourceTree = "<group>"; };
+		9DADBC632AA1F545002B3C6F /* DBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUser.swift; sourceTree = "<group>"; };
 		9DAF8A412A657D6300FCD25E /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		9DAF8A4F2A6C46AE00FCD25E /* SignInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
 		9DAF8A512A6C46C100FCD25E /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
@@ -65,6 +78,11 @@
 		9DAF8A562A71742800FCD25E /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 		9DAF8A582A71743300FCD25E /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		9DBE1EFF2A81334D00EBFCFA /* AuthNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNC.swift; sourceTree = "<group>"; };
+		9DC1D4A92A9F51AE008B118A /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
+		9DC1D4AB2A9F51C3008B118A /* UserInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoInteractor.swift; sourceTree = "<group>"; };
+		9DC1D4AD2A9F51CD008B118A /* UserInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoPresenter.swift; sourceTree = "<group>"; };
+		9DC1D4AF2A9F5C34008B118A /* UserInfoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTextField.swift; sourceTree = "<group>"; };
+		9DC1D4B12AA11D2F008B118A /* UserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
 		9DC48FAF2A48D39B0021362D /* ArchO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArchO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC48FB22A48D39B0021362D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DC48FB42A48D39B0021362D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +131,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D7AA3692A8FAF5A005E0755 /* ProfileSection */ = {
+			isa = PBXGroup;
+			children = (
+				9DC490032A605AEA0021362D /* ProfileVC.swift */,
+				9DC490052A609E930021362D /* ProfileInteractor.swift */,
+				9DC490072A609ECB0021362D /* ProfilePresenter.swift */,
+				9D7AA36C2A8FC5D9005E0755 /* CardCell.swift */,
+			);
+			path = ProfileSection;
+			sourceTree = "<group>";
+		};
 		9DAF8A532A6C46D200FCD25E /* SignInSection */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +161,18 @@
 				9D7AA3672A856754005E0755 /* SignUpPresenter.swift */,
 			);
 			name = SignUpSection;
+			sourceTree = "<group>";
+		};
+		9DC1D4A82A9F5179008B118A /* UserInfoSection */ = {
+			isa = PBXGroup;
+			children = (
+				9DC1D4A92A9F51AE008B118A /* UserInfoVC.swift */,
+				9DC1D4AB2A9F51C3008B118A /* UserInfoInteractor.swift */,
+				9DC1D4AD2A9F51CD008B118A /* UserInfoPresenter.swift */,
+				9DC1D4B12AA11D2F008B118A /* UserInfoCell.swift */,
+				9DC1D4AF2A9F5C34008B118A /* UserInfoTextField.swift */,
+			);
+			path = UserInfoSection;
 			sourceTree = "<group>";
 		};
 		9DC48FA62A48D39B0021362D = {
@@ -171,6 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				9DC48FD02A4EC1060021362D /* FBAuth.swift */,
+				9DADBC632AA1F545002B3C6F /* DBUser.swift */,
+				9D7AA36F2A962075005E0755 /* DBUserManager.swift */,
 				9DC48FD22A4EC12F0021362D /* FirestoreDB.swift */,
 				9DC48FD42A4EC17A0021362D /* DataStore.swift */,
 			);
@@ -208,9 +251,9 @@
 			isa = PBXGroup;
 			children = (
 				9DC48FEA2A58A9A60021362D /* ProfileCoordinator.swift */,
-				9DC490032A605AEA0021362D /* ProfileVC.swift */,
-				9DC490052A609E930021362D /* ProfileInteractor.swift */,
-				9DC490072A609ECB0021362D /* ProfilePresenter.swift */,
+				9D7AA36A2A8FAF86005E0755 /* ProfileNC.swift */,
+				9D7AA3692A8FAF5A005E0755 /* ProfileSection */,
+				9DC1D4A82A9F5179008B118A /* UserInfoSection */,
 			);
 			path = ProfileModule;
 			sourceTree = "<group>";
@@ -365,6 +408,7 @@
 				9DC4902E2A616F400021362D /* AuthOptionVC.swift in Sources */,
 				9DC48FE22A58A6BD0021362D /* MainCoordinator.swift in Sources */,
 				9DC48FD12A4EC1060021362D /* FBAuth.swift in Sources */,
+				9D7AA3702A962075005E0755 /* DBUserManager.swift in Sources */,
 				9DC48FFA2A5FF4940021362D /* SettingsVC.swift in Sources */,
 				9DAF8A592A71743300FCD25E /* MainPresenter.swift in Sources */,
 				9DC490022A6054DA0021362D /* MessagesVC.swift in Sources */,
@@ -381,23 +425,31 @@
 				9D7AA3642A8564CD005E0755 /* SignUpVC.swift in Sources */,
 				9DAF8A502A6C46AE00FCD25E /* SignInInteractor.swift in Sources */,
 				9D7AA3682A856754005E0755 /* SignUpPresenter.swift in Sources */,
+				9DC1D4B22AA11D2F008B118A /* UserInfoCell.swift in Sources */,
+				9DC1D4B02A9F5C34008B118A /* UserInfoTextField.swift in Sources */,
 				9DC48FEF2A58A9BB0021362D /* CardCoordinator.swift in Sources */,
 				9DC48FB52A48D39B0021362D /* SceneDelegate.swift in Sources */,
 				9DC490002A604DE20021362D /* CardVC.swift in Sources */,
+				9DC1D4AE2A9F51CD008B118A /* UserInfoPresenter.swift in Sources */,
 				9DAF8A552A716A9C00FCD25E /* Evaluator.swift in Sources */,
 				9DC490042A605AEA0021362D /* ProfileVC.swift in Sources */,
 				9DC48FF12A58A9C80021362D /* MessagesCoordinator.swift in Sources */,
+				9DC1D4AC2A9F51C3008B118A /* UserInfoInteractor.swift in Sources */,
 				9DC4901D2A6166640021362D /* ImageNames.swift in Sources */,
 				9DC4901F2A6168080021362D /* UICollor.swift in Sources */,
 				9DC48FCB2A4EB0070021362D /* Service+Prot.swift in Sources */,
 				9DAF8A572A71742800FCD25E /* MainInteractor.swift in Sources */,
+				9D7AA36D2A8FC5D9005E0755 /* CardCell.swift in Sources */,
 				9DC48FED2A58A9B10021362D /* SettingsCoordinator.swift in Sources */,
 				9DC490322A6171AE0021362D /* UIView.swift in Sources */,
 				9DC48FEB2A58A9A60021362D /* ProfileCoordinator.swift in Sources */,
+				9D7AA36B2A8FAF86005E0755 /* ProfileNC.swift in Sources */,
+				9DADBC642AA1F545002B3C6F /* DBUser.swift in Sources */,
 				9DC490082A609ECB0021362D /* ProfilePresenter.swift in Sources */,
 				9DC490302A616F560021362D /* AuthCoordinator.swift in Sources */,
 				9D7AA3662A85671C005E0755 /* SignUpInteractor.swift in Sources */,
 				9DC48FCD2A4EB4D20021362D /* ServiceInjector.swift in Sources */,
+				9DC1D4AA2A9F51AE008B118A /* UserInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

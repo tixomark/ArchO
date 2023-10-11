@@ -10,7 +10,7 @@ import Foundation
 protocol SignInPresenterInput {
     func loginValidationResult(_ value: Bool)
     func passwordValidationResult(_ value: Bool)
-    func makeNeededChangesWhileSignInIsInProcess()
+    func adjustUIWhileSignInIsInProcess()
     func authAttemptSucceed()
     func authAttemptDidResult(in error: Error)
     
@@ -50,7 +50,7 @@ extension SignInPresenter: SignInPresenterInput {
         }
     }
     
-    func makeNeededChangesWhileSignInIsInProcess() {
+    func adjustUIWhileSignInIsInProcess() {
         view?.adjustUIWhileSignInIsInProcess()
     }
     

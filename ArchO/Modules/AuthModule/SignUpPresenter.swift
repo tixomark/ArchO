@@ -11,6 +11,11 @@ protocol SignUpPresenterInput {
     func emailValidation(result isValid: Bool)
     func passwordValidation(result isValid: Bool, password: String)
     func passwordConf(newValue password: String)
+    
+    func adjustUIWhileSignUpIsInProcess()
+    func authAttemptSucceed()
+    func authAttemptDidResult(in error: Error)
+    
 }
 
 class SignUpPresenter {
@@ -81,5 +86,17 @@ extension SignUpPresenter: SignUpPresenterInput {
         }
     }
     
+    func adjustUIWhileSignUpIsInProcess() {
+        view?.adjustUIWhileSignInIsInProcess()
+    }
+    
+    func authAttemptSucceed() {
+        view?.endSignUp()
+    }
+    
+    func authAttemptDidResult(in error: Error) {
+        let title = "Error"
+        view?.showLoginAlert(title: title, message: error.localizedDescription)
+    }
     
 }

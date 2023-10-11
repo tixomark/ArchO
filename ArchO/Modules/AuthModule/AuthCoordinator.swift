@@ -8,19 +8,19 @@
 import Foundation
 import UIKit
 
-protocol AuthCordinatorFinishProtocol: AnyObject {
+protocol AuthCoordinatorFinishProtocol: AnyObject {
     func dismissModule()
 }
 
-protocol AuthCoordinatorProtocol: AuthCordinatorFinishProtocol, AnyObject {
-    func goToSignInSection()
-    func goToSignUpSection()
+protocol AuthCoordinatorProtocol: AuthCoordinatorFinishProtocol, AnyObject {
+    func showSignInSection()
+    func showSignUpSection()
     
 }
 
-protocol AuthCoordinatorSignUpProtocol: AuthCordinatorFinishProtocol, AnyObject {
-    func goToEmailSignUpScreen()
-    func goToEmailVerificationScreen()
+protocol AuthCoordinatorSignUpProtocol: AuthCoordinatorFinishProtocol, AnyObject {
+    func showEmailSignUpScreen()
+    func showEmailVerificationScreen()
     
 }
 
@@ -51,7 +51,7 @@ class AuthCoordinator: ChildCoordinator, ServiceDistributor {
     }
 }
 
-extension AuthCoordinator: AuthCordinatorFinishProtocol {
+extension AuthCoordinator: AuthCoordinatorFinishProtocol {
     func dismissModule() {
         parentCoordinator.childDidFinish(self)
         rootController.dismiss(animated: true)
@@ -59,7 +59,7 @@ extension AuthCoordinator: AuthCordinatorFinishProtocol {
 }
 
 extension AuthCoordinator: AuthCoordinatorProtocol {
-    func goToSignInSection() {
+    func showSignInSection() {
         let signInVC = SignInVC()
         let interactor = SignInInteractor()
         let presenter = SignInPresenter()
@@ -71,7 +71,7 @@ extension AuthCoordinator: AuthCoordinatorProtocol {
         rootController?.pushViewController(signInVC, animated: true)
     }
     
-    func goToSignUpSection() {
+    func showSignUpSection() {
         let signUpVC = SignUpOptionVC()
         signUpVC.coordinator = self
         rootController.pushViewController(signUpVC, animated: true)
@@ -80,7 +80,7 @@ extension AuthCoordinator: AuthCoordinatorProtocol {
 }
 
 extension AuthCoordinator: AuthCoordinatorSignUpProtocol {
-    func goToEmailSignUpScreen() {
+    func showEmailSignUpScreen() {
         let signUpVC = SignUpVC()
         let interactor = SignUpInteractor()
         let presenter = SignUpPresenter()
@@ -92,7 +92,7 @@ extension AuthCoordinator: AuthCoordinatorSignUpProtocol {
         rootController.pushViewController(signUpVC, animated: true)
     }
     
-    func goToEmailVerificationScreen() {
-        
+    func showEmailVerificationScreen() {
+        dismissModule()
     }
 }

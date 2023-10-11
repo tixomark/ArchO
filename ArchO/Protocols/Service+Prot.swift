@@ -8,7 +8,7 @@
 import Foundation
 
 enum Service {
-    case network, datastore, auth, firestore
+    case network, datastore, auth, firestore, userManager
 }
 
 protocol ServiceProtocol: CustomStringConvertible {

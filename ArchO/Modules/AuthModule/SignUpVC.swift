@@ -23,6 +23,10 @@ protocol SignUpVCInput: AnyObject {
     
     func updateUIToIndicatePasswordConfIsGood()
     func updateUIToIndicatePasswordConfProblem()
+    
+    func adjustUIWhileSignInIsInProcess()
+    func endSignUp()
+    func showLoginAlert(title: String, message: String)
 }
 
 class SignUpVC: UIViewController {
@@ -56,6 +60,7 @@ class SignUpVC: UIViewController {
         
         emailTextField = UITextField()
         emailTextField.placeholder = "Адрес электронной почты"
+        emailTextField.autocapitalizationType = .none
         emailTextField.layer.cornerRadius = 5
         emailTextField.layer.borderWidth = 1
         emailTextField.layer.borderColor = UIColor.archoSecondaryColor.cgColor
@@ -64,6 +69,7 @@ class SignUpVC: UIViewController {
         
         passwordTextField = UITextField()
         passwordTextField.placeholder = "Пароль"
+        passwordTextField.autocapitalizationType = .none
         passwordTextField.layer.cornerRadius = 5
         passwordTextField.layer.borderWidth = 1
         passwordTextField.layer.borderColor = UIColor.archoSecondaryColor.cgColor
@@ -72,6 +78,7 @@ class SignUpVC: UIViewController {
         
         passwordConfTextField = UITextField()
         passwordConfTextField.placeholder = "Подтвердите пароль"
+        passwordConfTextField.autocapitalizationType = .none
         passwordConfTextField.layer.cornerRadius = 5
         passwordConfTextField.layer.borderWidth = 1
         passwordConfTextField.layer.borderColor = UIColor.archoSecondaryColor.cgColor
@@ -85,7 +92,6 @@ class SignUpVC: UIViewController {
         continueButton.layer.cornerRadius = 24
         continueButton.addTarget(self, action: #selector(didTapContinueButton), for: .touchUpInside)
         deactivateContinueButton()
-        
         
         view.addSubviews(headerLabel, registrationIcon, emailTextField, passwordTextField, passwordConfTextField, continueButton)
     }
@@ -122,7 +128,9 @@ class SignUpVC: UIViewController {
     }
     
     @objc func didTapContinueButton(_ sender: UIButton) {
-        
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else { return }
+        interactor?.trySignUpUsing(email: email, password: password)
     }
     
     @objc func editingChangedIn(_ sender: UITextField) {
@@ -188,6 +196,27 @@ extension SignUpVC: SignUpVCInput {
         passwordConfTextField.layer.borderColor = UIColor.archoRed.cgColor
     }
     
+    func adjustUIWhileSignInIsInProcess() {
+        deactivateContinueButton()
+        emailTextField.isEnabled = false
+        passwordTextField.isEnabled = false
+        passwordConfTextField.isEnabled = false
+    }
     
+    func endSignUp() {
+        coordinator.showEmailVerificationScreen()
+    }
+    
+    func showLoginAlert(title: String, message: String) {
+        activateContinueButton()
+        emailTextField.isEnabled = true
+        passwordTextField.isEnabled = true
+        passwordConfTextField.isEnabled = true
+
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel)
+        alert.addAction(okAction)
+        self.present(alert, animated: true)
+    }
 }
 

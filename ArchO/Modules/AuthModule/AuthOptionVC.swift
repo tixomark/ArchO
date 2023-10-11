@@ -78,11 +78,11 @@ class AuthOptionVC: UIViewController {
     }
     
     @objc func didTapSignInOption() {
-        coordinator.goToSignInSection()
+        coordinator.showSignInSection()
     }
     
     @objc func didTapSignUpOption() {
-        coordinator.goToSignUpSection()
+        coordinator.showSignUpSection()
     }
 }
 

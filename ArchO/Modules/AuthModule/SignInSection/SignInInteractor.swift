@@ -50,7 +50,7 @@ extension SignInInteractor: SignInInteractorInput {
     }
     
     func trySignInUsing(login: String, password: String) {
-        presenter?.makeNeededChangesWhileSignInIsInProcess()
+        presenter?.adjustUIWhileSignInIsInProcess()
         authService.signInUsing(email: login, password: password) { error in
             guard error == nil else {
                 self.presenter?.authAttemptDidResult(in: error!)

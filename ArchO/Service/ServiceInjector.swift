@@ -14,6 +14,7 @@ class ServiceInjector {
         services[.datastore] = DataStore()
         services[.auth] = FBAuth()
         services[.firestore] = FirestoreDB()
+        services[.userManager] = DBUserManager()
     }
     
     func injectServices(forObject object: ServiceObtainable) {

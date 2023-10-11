@@ -1,14 +1,15 @@
 //
-//  AuthNC.swift
+//  ProfileNC.swift
 //  ArchO
 //
-//  Created by Tixon Markin on 07.08.2023.
+//  Created by Tixon Markin on 18.08.2023.
 //
 
+import Foundation
 import UIKit
 
-class AuthNC: UINavigationController {
-    weak var coordinator: AuthCoordinatorFinishProtocol?
+class ProfileNC: UINavigationController {
+    weak var coordinator: ProfileCoordinatorFinishProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,6 @@ class AuthNC: UINavigationController {
     }
 
     deinit {
-        print("deinit AuthNC")
+        print("deinit ProfileNC")
     }
 }

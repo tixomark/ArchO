@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class SignUpOptionVC: UIViewController {
-    
     weak var coordinator: AuthCoordinatorSignUpProtocol!
     
     var createAccountLabel: UILabel!
@@ -78,7 +77,7 @@ class SignUpOptionVC: UIViewController {
         case phoneSignUpButton:
             print("user selected phoneAuth method")
         case emailSignUpButton:
-            coordinator.goToEmailSignUpScreen()
+            coordinator.showEmailSignUpScreen()
         default:
             print("User did tap undefined button")
         }

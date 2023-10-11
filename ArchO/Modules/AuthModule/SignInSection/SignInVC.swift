@@ -52,6 +52,7 @@ class SignInVC: UIViewController {
         
         loginTF = UITextField()
         loginTF.placeholder = "Номер телефона/E-mail"
+        loginTF.autocapitalizationType = .none
         loginTF.layer.cornerRadius = 5
         loginTF.layer.borderWidth = 1
         loginTF.layer.borderColor = UIColor.archoSecondaryColor.cgColor
@@ -60,6 +61,7 @@ class SignInVC: UIViewController {
         
         passwordTF = UITextField()
         passwordTF.placeholder = "Пароль"
+        passwordTF.autocapitalizationType = .none
         passwordTF.layer.cornerRadius = 5
         passwordTF.layer.borderWidth = 1
         passwordTF.layer.borderColor = UIColor.archoSecondaryColor.cgColor
