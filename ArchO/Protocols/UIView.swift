@@ -13,7 +13,11 @@ extension UIView {
         views.forEach { self.addSubview($0) }
     }
     
-    func doNotTranslateAutolayout() {
-        self.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+    func addSubviews(_ views: [UIView]) {
+        views.forEach { self.addSubview($0) }
+    }
+    
+    func doNotTranslateAutoLayout(for views: UIView...) {
+        views.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
     }
 }

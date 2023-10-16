@@ -25,6 +25,14 @@ extension UIColor {
         getColor("archoSecondaryColor")
     }
     
+    static var archoLightGray: UIColor {
+        getColor("archoLightGray")
+    }
+    
+    static var archoDarkGray: UIColor {
+        getColor("archoDarkGray")
+    }
+    
     fileprivate static func getColor(_ named: String) -> UIColor {
         guard let color = UIColor(named: named) else {
             print("No such color \(named) in assets")

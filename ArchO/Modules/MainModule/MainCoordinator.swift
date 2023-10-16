@@ -72,8 +72,6 @@ extension MainCoordinator: MainCoordinatorProtocol {
         settingsCoordinator.start()
     }
     
-    
-    
     func showProfileScreen() {
         let profileCoordinator = ProfileCoordinator(parent: self)
         childCoordinators.append(profileCoordinator)

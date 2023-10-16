@@ -8,22 +8,39 @@
 import Foundation
 import UIKit
 
-protocol CardCoordinatorProtocol {
-    func didEndCard()
+protocol CardCoordinatorFinishProtocol: AnyObject {
+    func dismissModule()
 }
 
-class CardCoordinator: ChildCoordinator {
+protocol CardCoordinatorProtocol: CardCoordinatorFinishProtocol, AnyObject {
+    
+}
+
+class CardCoordinator: ChildCoordinator, ServiceDistributor {
     var parentCoordinator: ParentCoordinator
     var rootController: UINavigationController!
+    var serviceInjector: ServiceInjector?
     
     init (parent: ParentCoordinator) {
+        rootController = CardNC()
         parentCoordinator = parent
+        if let parent = parent as? ServiceDistributor {
+            serviceInjector = parent.serviceInjector
+        }
+        
     }
     
     func start() {
-        let cardVC = CardVC()
+        let cardVC = CardPVC(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        let interactor = CardInteractor()
+        let presenter = CardPresenter()
         cardVC.coordinator = self
-        rootController = UINavigationController(rootViewController: cardVC)
+        cardVC.interactor = interactor
+        interactor.presenter = presenter
+        presenter.view = cardVC
+        serviceInjector?.injectServices(forObject: interactor)
+        rootController.viewControllers = [cardVC]
+        rootController.modalPresentationStyle = .fullScreen
         parentCoordinator.rootController.present(rootController, animated: true)
     }
     
@@ -36,8 +53,8 @@ class CardCoordinator: ChildCoordinator {
 }
 
 extension CardCoordinator: CardCoordinatorProtocol {
-    func didEndCard() {
+    func dismissModule() {
         parentCoordinator.childDidFinish(self)
-        rootController = nil
+        rootController.dismiss(animated: true)
     }
 }

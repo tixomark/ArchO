@@ -84,7 +84,6 @@ class MainVC: UIViewController {
     
     @objc func didTapOnMessagesButton(_ sender: UIButton) {
         coordinator.showMessagesScreen()
-        
     }
     @objc func didTapOnCardButton(_ sender: UIButton) {
         coordinator.showCardScreen()

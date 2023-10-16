@@ -17,9 +17,6 @@ protocol FBAuthProtocol {
     func signInUsing(email: String, password: String, authResult: @escaping (Error?) -> ())
     func signUpUsing(email: String, password: String, authResult: @escaping (Result<User, Error>) -> ())
     func signOut() -> Bool
-}
-
-protocol FBAuthStateListenerManagerProtocol {
     func addAuthListener(for listenerOwner: AnyObject, completion: @escaping (Auth, User) -> ())
     func removeAuthListener(from listenerOwner: AnyObject)
 }
@@ -86,7 +83,8 @@ class FBAuth: FBAuthProtocol, ServiceProtocol {
     }
 }
 
-extension FBAuth: FBAuthStateListenerManagerProtocol {
+// MARK: - auth state listener logic
+extension FBAuth {
     func addAuthListener(for listenerOwner: AnyObject, completion: @escaping (Auth, User) -> ()) {
         let listener = Auth.auth().addStateDidChangeListener { auth, user in
             guard let user = user else { return }

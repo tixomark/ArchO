@@ -13,5 +13,6 @@ enum ImageNames: String {
     case profileImage = "profileImage"
     case profileIcon = "profileIcon"
     case regIcon = "registrationIcon"
+    case importIcom = "importIcon"
     
 }

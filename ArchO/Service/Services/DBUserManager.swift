@@ -69,15 +69,15 @@ extension DBUserManager {
         
     }
     func getData(forUser uid: String) {
-        userDocument(uid: uid).getDocument { snapshot, errorr in
-            guard let snapshot = snapshot else { return }
-            do {
-                let user = try self.userDecoder.decode(DBUser.self, from: snapshot)
-                
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
+//        userDocument(uid: uid).getDocument { snapshot, errorr in
+//            guard let snapshot = snapshot else { return }
+//            do {
+//                try self.userDecoder.decode(DBUser.self, from: snapshot)
+//                
+//            } catch {
+//                print(error.localizedDescription)
+//            }
+//        }
     }
 }
 

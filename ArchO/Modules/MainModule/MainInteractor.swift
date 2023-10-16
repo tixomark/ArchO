@@ -13,7 +13,7 @@ protocol MainInteractorInput {
 
 extension MainInteractor: ServiceObtainable {
     var neededServices: [Service] {
-        [.auth]
+        [.auth, .userManager]
     }
     
     func addServices(_ services: [Service : ServiceProtocol]) {
