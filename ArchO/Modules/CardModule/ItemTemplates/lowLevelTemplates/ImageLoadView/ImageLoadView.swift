@@ -8,6 +8,15 @@
 import UIKit
 import PhotosUI
 
+protocol ImageLoadViewDelegate {
+    func imageLoadView(_ imageLoadView: ImageLoadView, didFinishPicking images: UIImage)
+}
+
+protocol ImageLoadViewDataSource {
+    func imageLoadView(_ imageLoadView: ImageLoadView, numberOfItems: Int) -> Int
+    func imageLoadView(_ imageLoadView: ImageLoadView, imageForItem atIndex: Int) -> Int
+}
+
 class ImageLoadView: UIView {
     
     var collection: UICollectionView!
@@ -19,6 +28,7 @@ class ImageLoadView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setUpUI()
         
         
@@ -99,9 +109,46 @@ class ImageLoadView: UIView {
 
 }
 
+extension ImageLoadView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, canEditItemAt indexPath: IndexPath) -> Bool {
+        if indexPath.item == 0 {
+            return false
+        }
+        return true
+    }
+    
+    
+}
+
+extension ImageLoadView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = UICollectionViewCell()
+        
+        if indexPath.item == 0 {
+            cell.contentViewaddImageButton
+        }
+    }
+    
+    
+}
+
+
 extension ImageLoadView: PHPickerViewControllerDelegate {
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        var images: [UIImage] = []
+        
+        results.forEach { result in
+            result.itemProvider.loadObject(ofClass: UIImage.self) { object, error in
+                if error == nil, let image = object as? UIImage {
+                    images.append(image)
+                }
+            }
+        }
         picker.dismiss(animated: true)
     }
     
