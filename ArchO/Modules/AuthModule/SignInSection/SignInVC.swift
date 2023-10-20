@@ -46,7 +46,7 @@ class SignInVC: UIViewController {
         header.numberOfLines = 0
         
         profileIcon = UIImageView()
-        profileIcon.image = UIImage(named: IN.profileImage.rawValue)
+        profileIcon.image = UIImage(.profileImage)
         profileIcon.contentMode = .scaleAspectFit
         profileIcon.clipsToBounds = true
         

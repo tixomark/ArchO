@@ -51,7 +51,7 @@ class UserInfoVC: UIViewController {
         infoTable.separatorStyle = .none
         infoTable.allowsSelection = false
         infoTable.isScrollEnabled = false
-        infoTable.register(UserInfoCell.self, forCellReuseIdentifier: UserInfoCell.cellId)
+        infoTable.register(UserInfoCell.self, forCellReuseIdentifier: UserInfoCell.description())
         
         doneButton = UIButton()
         doneButton.setTitle("ОК", for: .normal)
@@ -116,7 +116,7 @@ extension UserInfoVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: UserInfoCell.cellId, for: indexPath) as! UserInfoCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: UserInfoCell.description(), for: indexPath) as! UserInfoCell
         
         var cellType: UserInfoCellContentType!
         switch indexPath.row {

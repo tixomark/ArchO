@@ -28,6 +28,7 @@ class CardPVC: UIPageViewController {
                  HistoricalBackgroundVC(), AdditionalInfoVC()]
         setViewControllers([pages[0]], direction: .forward, animated: true)
         self.dataSource = self
+        self.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -69,4 +70,10 @@ extension CardPVC: UIPageViewControllerDataSource {
     }
 
 
+}
+
+extension CardPVC: UIPageViewControllerDelegate {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+
+    }
 }

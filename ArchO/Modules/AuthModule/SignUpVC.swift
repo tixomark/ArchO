@@ -54,7 +54,7 @@ class SignUpVC: UIViewController {
         headerLabel.text = "Регистрация"
         
         registrationIcon = UIImageView()
-        registrationIcon.image = UIImage(named: IN.regIcon.rawValue)
+        registrationIcon.image = UIImage(.regIcon)
         registrationIcon.contentMode = .scaleAspectFit
         registrationIcon.clipsToBounds = true
         

@@ -31,7 +31,7 @@ class SignUpOptionVC: UIViewController {
         createAccountLabel.text = "Создайте аккаунт"
         
         mainImageView = UIImageView()
-        mainImageView.image = UIImage(named: IN.profileIcon.rawValue)
+        mainImageView.image = UIImage(.profileIcon)
         mainImageView.contentMode = .scaleAspectFit
         
         phoneSignUpButton = UIButton()

@@ -23,7 +23,6 @@ protocol UserInfoCellDelegate: AnyObject {
 }
 
 class UserInfoCell: UITableViewCell {
-    static var cellId: String = "UserInfoCell"
     var contentType: UserInfoCellContentType!
     
     private var mainView: UserInfoTextField!
@@ -44,7 +43,6 @@ class UserInfoCell: UITableViewCell {
         selectionStyle = .none
         mainView.delegate = self
         contentView.addSubview(mainView)
-        
     }
     
     private func setUpConstraints() {

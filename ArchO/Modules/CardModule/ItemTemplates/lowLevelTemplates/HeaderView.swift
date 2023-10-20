@@ -45,6 +45,7 @@ class HeaderView: UIView {
         
         titleLabel = UILabel()
         titleLabel.textAlignment = .left
+        titleLabel.textColor = .archoSecondaryColor
         titleLabel.numberOfLines = 0
         
         backgroundView = UIView()
@@ -56,7 +57,7 @@ class HeaderView: UIView {
     }
     
     private func setUpConstraints() {
-        doNotTranslateAutoLayout(for: numberLabel, titleLabel, backgroundView)
+        UIView.doNotTranslateAutoLayout(for: numberLabel, titleLabel, backgroundView)
         NSLayoutConstraint.activate([
             backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
             backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),

@@ -26,6 +26,8 @@ extension CardInteractor: ServiceObtainable {
 class CardInteractor {
     var presenter: CardPresenterInput!
     
+//    var images: [UIImage] = []
+    
     deinit {
         print("deinit CardInteractor")
     }

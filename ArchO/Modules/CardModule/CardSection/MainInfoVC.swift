@@ -8,102 +8,166 @@
 import UIKit
 
 class MainInfoVC: UIViewController {
+    var images: [UIImage] = []
+    var interactor: CardInteractorInput!
     
     var scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.showsHorizontalScrollIndicator = false
+        scroll.showsVerticalScrollIndicator = false
         scroll.bounces = false
-        scroll.maximumZoomScale = 1.0
-        scroll.minimumZoomScale = 1.0
+        scroll.contentInset = .init(top: 8, left: 8, bottom: 8, right: 8)
+        scroll.keyboardDismissMode = .interactive
         return scroll
     }()
     
-    var contentView: UIView!
+    var headerItem = SectionHeaderItem()
+    var textItem4 = TextItem()
+    var textItem5 = TextItem()
+    var textItem6 = TextItem()
+    var imageItem7 = ImageItem()
+    var imageItem71 = ImageItem()
+    var textItem8 = TextItem()
+    var textItem9 = DateItem()
+    var textItem10 = TextItem()
+    var textItem11 = TextItem()
+    var pickerItem12 = PickerItem()
+    var pickerItem13 = PickerItem()
+    var textItem14 = TextItem()
+    var pickerItem15 = PickerItem()
+    var textItem16 = TextItem()
+    var textItem17 = TextItem()
     
-    var header: SectionHeaderView!
-    var textItem4: TextItemView!
-    var textItem5: TextItemView!
-    var textItem6: TextItemView!
-    
-    var imageItem7: ImageItemView!
-    
+    lazy var items: [UIView] = [headerItem, textItem4, textItem5, textItem6, imageItem7, imageItem71, textItem8, textItem9, textItem10, textItem11, pickerItem12, pickerItem13, textItem14, pickerItem15, textItem16, textItem17]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpUI()
+
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         setUpConstraints()
     }
-
 }
 
 // MARK: - setting ui and constraints
 extension MainInfoVC {
     private func setUpUI() {
-        
         view.backgroundColor = .archoBackgroundColor
         view.addSubview(scrollView)
-        let contentFrame = view.bounds.inset(by: .init(top: 8, left: 8, bottom: 8, right: 8))
-        scrollView.contentSize = contentFrame.size
         
-        contentView = UIView()
-        contentView.frame = contentFrame
-        scrollView.addSubview(contentView)
+        headerItem.configure(title: "Общие данные по объекту")
         
-        header = SectionHeaderView()
-        header.configure(title: "First header")
-        contentView.addSubview(header)
+        textItem4.header.configure(number: "4", title: "Наименование объекта")
+        textItem4.textView.configure(placeholder: "Укажите название описываемого объекта (обязательно)", text: "Какая-то усадьба")
         
-        textItem4 = TextItemView()
-        textItem4.header.configure(number: "4", title: "Some title")
-        textItem4.textView.configure(placeholder: "Some placeholder", text: "Some text")
-        contentView.addSubview(textItem4)
+        textItem5.header.configure(number: "5", title: "Состав дворцово-паркового ансамбля")
         
-        textItem5 = TextItemView()
-        textItem5.header.configure(number: "5", title: "Some title")
-        textItem5.textView.configure(placeholder: "Some placeholder")
-        contentView.addSubview(textItem5)
+        textItem6.header.configure(number: "6", title: "Адрес объекта")
+        textItem6.textView.configure(placeholder: "Укажите адрес объекта")
         
-        imageItem7 = ImageItemView()
-        imageItem7.header.configure(number: "7", title: "Some image title")
+        imageItem7.header.configure(number: "7", title: "Современный вид ОКН")
         imageItem7.imageView.presentingView = self
-        contentView.addSubview(imageItem7)
+        imageItem7.delegate = self
+        imageItem7.dataSource = self
         
+        imageItem71.header.configure(number: "7/1", title: "Первоначальный вид ОКН")
+        imageItem71.imageView.presentingView = self
+        imageItem71.delegate = self
+        imageItem71.dataSource = self
+        
+        textItem8.header.configure(number: "8", title: "Координаты объекта")
+        textItem8.textView.configure(placeholder: "Yet to be coded")
+        
+        textItem9.header.configure(number: "9", title: "Дата строительства")
+        
+        textItem10.header.configure(number: "10", title: "Архитектор(ы)")
+        
+        textItem11.header.configure(number: "11", title: "Сведения о владельцах")
+        textItem11.textView.configure(placeholder: "Укажите владельца и годы владения")
+        
+        pickerItem12.header.configure(number: "12", title: "Типологическая принадлежность")
+        pickerItem12.pickerView.dataSource = self
+        pickerItem12.pickerView.delegate = self
+        
+        pickerItem13.header.configure(number: "13", title: "Охранный статус объекта ОКН")
+        pickerItem13.pickerView.dataSource = self
+        pickerItem13.pickerView.delegate = self
+        
+        textItem14.header.configure(number: "14", title: "Краткое архитектурное описание:")
+        textItem14.textView.configure(placeholder: "Укажите материалы, форму и декор здания, характер фундамента, форму крыши и другие особенности")
+        
+        pickerItem15.header.configure(number: "15", title: "Характеристика технического состояния объекта")
+        pickerItem15.pickerView.dataSource = self
+        pickerItem15.pickerView.delegate = self
+        
+        textItem16.header.configure(number: "16", title: "Характер современного использования")
+        textItem16.textView.configure(placeholder: "Укажите современное назначение (использование) объекта")
+        
+        textItem17.header.configure(number: "17", title: "Необходимые первоочередные работы")
+        textItem17.textView.configure(placeholder: "Какие на ваш взгляд, необходимы первоочередные работы для сохранения данного объекта?")
+        
+        scrollView.addSubviews(items)
     }
     
     private func setUpConstraints() {
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        header.translatesAutoresizingMaskIntoConstraints = false
-        textItem4.translatesAutoresizingMaskIntoConstraints = false
-        textItem5.translatesAutoresizingMaskIntoConstraints = false
-        imageItem7.translatesAutoresizingMaskIntoConstraints = false
-
-        
+        UIView.doNotTranslateAutoLayout(for: scrollView)
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-
-            header.topAnchor.constraint(equalTo: contentView.topAnchor),
-            header.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            header.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            
-            textItem4.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 16),
-            textItem4.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            textItem4.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            
-            textItem5.topAnchor.constraint(equalTo: textItem4.bottomAnchor, constant: 16),
-            textItem5.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            textItem5.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            
-            imageItem7.topAnchor.constraint(equalTo: textItem5.bottomAnchor, constant: 16),
-            imageItem7.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageItem7.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
-            
         ])
-
         
+        UIView.doNotTranslateAutoLayout(for: items)
+        let lastIndex = items.count - 1
+        for (index, item) in items.enumerated() {
+            switch index {
+            case 0:
+                item.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8).isActive = true
+            case lastIndex:
+                item.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 16).isActive = true
+                fallthrough
+            default:
+                item.topAnchor.constraint(equalTo: items[index - 1].bottomAnchor, constant: 16).isActive = true
+            }
+            NSLayoutConstraint.activate([
+                item.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -16)
+            ])
+        }
     }
+}
+
+extension MainInfoVC: ImageItemDelegate, ImageItemDataSource {
+    func imageItem(_ imageItemView: ImageItem, didFinishPicking images: [UIImage]) {
+        images.forEach { image in
+            self.images.append(image)
+        }
+    }
+    
+    func imageItem(numberOfItemsIn imageItemView: ImageItem) -> Int? {
+        return images.count
+    }
+    
+    func imageItem(_ imageItemView: ImageItem, imageForItemAt index: Int) -> UIImage {
+        images[index]
+    }
+    
+    
+}
+
+extension MainInfoVC: PickerViewDelegate, PickerViewDataSource {
+    func pickerView(_ pickerView: PickerView, didDidSelect value: String) {
+        print(value)
+    }
+    
+    func pickerView(optionsFor pickerView: PickerView) -> [String] {
+        ["1option", "2option", "3option", "4"]
+    }
+    
+    
 }
 

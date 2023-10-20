@@ -40,7 +40,7 @@ class ProfileVC: UIViewController {
     
     private func setUpUI() {
         userImage = UIImageView()
-        userImage.image = UIImage(named: IN.profileIcon.rawValue)
+        userImage.image = UIImage(.profileIcon)
         userImage.contentMode = .scaleAspectFit
         userImage.clipsToBounds = true
         

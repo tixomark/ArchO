@@ -1,16 +1,15 @@
 //
-//  ImageItemView.swift
+//  DateItemView.swift
 //  ArchO
 //
-//  Created by Tixon Markin on 15.10.2023.
+//  Created by Tixon Markin on 18.10.2023.
 //
 
 import UIKit
 
-class ImageItemView: UIView {
-
+class DateItem: UIView {
     var header: HeaderView!
-    var imageView: ImageLoadView!
+    var dateView: DateView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,29 +23,27 @@ class ImageItemView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         setUpConstraints()
-        
     }
     
     private func setUpUI() {
         header = HeaderView()
-        imageView = ImageLoadView()
-        self.addSubviews(header, imageView)
-        
+        dateView = DateView()
+        self.addSubviews(header, dateView)
     }
     
     private func setUpConstraints() {
-        doNotTranslateAutoLayout(for: header, imageView)
+        UIView.doNotTranslateAutoLayout(for: header, dateView)
         
         NSLayoutConstraint.activate([
             header.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             header.topAnchor.constraint(equalTo: self.topAnchor),
             
-            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            imageView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 8),
-            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            dateView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            dateView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            dateView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 8),
+            dateView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
-
+    
 }

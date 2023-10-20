@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SectionHeaderView: UIView {
+class SectionHeaderItem: UIView {
     var titleLabel: UILabel!
     var backgroundView: UIView!
     
@@ -26,7 +26,7 @@ class SectionHeaderView: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: SectionHeaderView.noIntrinsicMetric, height: 56)
+        return CGSize(width: SectionHeaderItem.noIntrinsicMetric, height: 56)
     }
     
     private func setUpUI() {
@@ -50,7 +50,7 @@ class SectionHeaderView: UIView {
     }
     
     private func setUpConstraints() {
-        doNotTranslateAutoLayout(for: titleLabel, backgroundView)
+        UIView.doNotTranslateAutoLayout(for: titleLabel, backgroundView)
         NSLayoutConstraint.activate([
             backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
             backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),

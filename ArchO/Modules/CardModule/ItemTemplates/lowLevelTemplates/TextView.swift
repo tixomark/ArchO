@@ -8,7 +8,15 @@
 import UIKit
 
 class TextView: UIView {
-    var textView: UITextView!
+    var textView: UITextView = {
+        let textView = UITextView()
+        textView.font = UIFont.systemFont(ofSize: 16)
+        textView.autocapitalizationType = .none
+        textView.isScrollEnabled = false
+        textView.textColor = .archoSecondaryColor
+        textView.backgroundColor = .archoBackgroundColor
+        return textView
+    }()
     var placeholder: String?
     private var isShowingPlaceholder = true
     
@@ -35,11 +43,7 @@ class TextView: UIView {
         self.layer.borderColor = UIColor.archoSecondaryColor.cgColor
         self.layer.borderWidth = 1.5
         
-        textView = UITextView()
-        textView.font = UIFont.systemFont(ofSize: 16)
         textView.delegate = self
-        textView.autocapitalizationType = .none
-        textView.isScrollEnabled = false
         self.addSubview(textView)
     }
     

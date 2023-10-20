@@ -1,15 +1,15 @@
 //
-//  TextItemView.swift
+//  PickerItem.swift
 //  ArchO
 //
-//  Created by Tixon Markin on 13.10.2023.
+//  Created by Tixon Markin on 20.10.2023.
 //
 
 import UIKit
 
-class TextItemView: UIView {
+class PickerItem: UIView {
     var header: HeaderView!
-    var textView: TextView!
+    var pickerView: PickerView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,23 +27,24 @@ class TextItemView: UIView {
     
     private func setUpUI() {
         header = HeaderView()
-        textView = TextView()
-        self.addSubviews(header, textView)
+        pickerView = PickerView()
+        self.addSubviews(header, pickerView)
     }
     
     private func setUpConstraints() {
-        doNotTranslateAutoLayout(for: header, textView)
+        UIView.doNotTranslateAutoLayout(for: header, pickerView)
         
         NSLayoutConstraint.activate([
             header.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             header.topAnchor.constraint(equalTo: self.topAnchor),
             
-            textView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            textView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            textView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 8),
-            textView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            pickerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            pickerView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            pickerView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 8),
+            pickerView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
-
+    
+    
 }

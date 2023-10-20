@@ -27,11 +27,9 @@ class SettingsCoordinator: ChildCoordinator {
         parentCoordinator.rootController.present(rootController, animated: true)
     }
     
-    
     deinit {
         print("deinit SettingsCoordinator")
     }
-    
 }
 
 extension SettingsCoordinator: SettingsCoordinatorProtocol {
