@@ -13,7 +13,7 @@ class ServiceInjector {
     init() {
         services[.datastore] = DataStore()
         services[.auth] = FBAuth()
-        services[.firestore] = FirestoreDB()
+        services[.cardManager] = DBCardManager()
         services[.userManager] = DBUserManager()
     }
     

@@ -1,15 +1,15 @@
 //
-//  TextItemView.swift
+//  DateItemView.swift
 //  ArchO
 //
-//  Created by Tixon Markin on 13.10.2023.
+//  Created by Tixon Markin on 18.10.2023.
 //
 
 import UIKit
 
-class TextItem: UIView {
+class DateItem: UIView {
     var headerView = HeaderView()
-    var textView = TextView()
+    var dateView = DateView()
     
     var itemID: ItemID!
     
@@ -28,36 +28,37 @@ class TextItem: UIView {
     }
     
     private func setUpUI() {
-        self.addSubviews(headerView, textView)
+        self.addSubviews(headerView, dateView)
     }
     
     private func setUpConstraints() {
-        UIView.doNotTranslateAutoLayout(for: headerView, textView)
+        UIView.doNotTranslateAutoLayout(for: headerView, dateView)
         
         NSLayoutConstraint.activate([
             headerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             headerView.topAnchor.constraint(equalTo: self.topAnchor),
             
-            textView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 8),
-            textView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            textView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            textView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            dateView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            dateView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            dateView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 8),
+            dateView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
-
+    
 }
 
-extension TextItem: ItemProtocol {
+
+extension DateItem: ItemProtocol {
     func configure(data: [PersistentDataContainer]) {
         data.forEach { itemData in
             switch itemData {
             case let .header(number, title, hint):
                 headerView.configure(number: number, title: title, hint: hint)
                 headerView.itemID = itemID
-            case .text(let placeholder, _):
-                textView.configure(placeholder: placeholder)
-                textView.itemID = itemID
+            case let .date(annotation):
+                dateView.configure(annotation: annotation)
+                dateView.itemID = itemID
             default:
                 return
             }
@@ -65,9 +66,6 @@ extension TextItem: ItemProtocol {
     }
     
     func assign(delegateTo delegate: AnyObject, dataSourceTo dataSource: AnyObject) {
-        textView.delegate = (delegate as? TextViewDelegate)
+        dateView.delegate = (delegate as? DateViewDelegate)
     }
-    
-    
-    
 }

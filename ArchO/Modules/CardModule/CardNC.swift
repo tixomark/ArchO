@@ -22,7 +22,7 @@ class CardNC: UINavigationController {
     }
 
     deinit {
-        print("deinit ProfileNC")
+        print("deinit CardNC")
     }
 
 }

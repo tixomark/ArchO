@@ -14,6 +14,7 @@ enum ImageName: String {
     case regIcon = "registrationIcon"
     case importIcom = "importIcon"
     case exclamationIcon = "exclamationIcon"
+    case deleteIcon = "deleteIcon"
     
 }
 

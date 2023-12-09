@@ -61,8 +61,8 @@ class UserInfoCell: UITableViewCell {
     }
     
     func configure(data: DBUserContactField?, type: UserInfoCellContentType) {
-    contentType = type
-    mainView.setInitialValues(text: data?.value, isSelected: data?.isSelected, placeholder: contentType.rawValue)
+        contentType = type
+        mainView.setInitialValues(text: data?.value, isSelected: data?.isSelected, placeholder: contentType.rawValue)
     }
 }
 

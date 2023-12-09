@@ -8,7 +8,9 @@
 import Foundation
 
 protocol MainPresenterInput {
-    func showModuleAccordingToUserAuthState(_ isAuthed: Bool)
+    func didRecieveTapOnUserIcon(_ isAuthed: Bool)
+    func didRecieveTapOnCardIcon(authState isAuthed: Bool)
+    
 }
 
 class MainPresenter {
@@ -16,14 +18,14 @@ class MainPresenter {
 }
 
 extension MainPresenter: MainPresenterInput {
-    func showModuleAccordingToUserAuthState(_ isAuthed: Bool) {
-        switch isAuthed {
-        case true:
-            view.goToProfileSection()
-        case false:
-            view.goToAuthSection()
-        }
+    func didRecieveTapOnUserIcon(_ isAuthed: Bool) {
+        isAuthed ? view.goToProfileSection() : view.goToAuthSection()
     }
+    
+    func didRecieveTapOnCardIcon(authState isAuthed: Bool) {
+        isAuthed ? view.goToCardSection() : view.showAuthAlert()
+    }
+    
     
     
 }

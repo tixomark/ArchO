@@ -31,13 +31,33 @@ class CardCoordinator: ChildCoordinator, ServiceDistributor {
     }
     
     func start() {
-        let cardVC = CardPVC(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        let firstVC = FirstVC()
+        let mainInfoVC = MainInfoVC()
+        let listOfWorksVC = ListOfWorksVC()
+        let historicalBackgroungVC = HistoricalBackgroundVC()
+        let additionalInfoVC = AdditionalInfoVC()
+        
+        let cardVC = CardPVC(viewControllers: [firstVC, mainInfoVC, listOfWorksVC,
+                                               historicalBackgroungVC, additionalInfoVC])
         let interactor = CardInteractor()
         let presenter = CardPresenter()
         cardVC.coordinator = self
         cardVC.interactor = interactor
         interactor.presenter = presenter
-        presenter.view = cardVC
+        presenter.cardPVC = cardVC
+        
+        firstVC.interactor = interactor
+        mainInfoVC.interactor = interactor
+        listOfWorksVC.interactor = interactor
+        historicalBackgroungVC.interactor = interactor
+        additionalInfoVC.interactor = interactor
+        
+        presenter.firstView = firstVC
+        presenter.mainInfoView = mainInfoVC
+        presenter.listOfWorksView = listOfWorksVC
+        presenter.historicalBackgroundView = historicalBackgroungVC
+        presenter.additionalInfoView = additionalInfoVC
+        
         serviceInjector?.injectServices(forObject: interactor)
         rootController.viewControllers = [cardVC]
         rootController.modalPresentationStyle = .fullScreen

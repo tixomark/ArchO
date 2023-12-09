@@ -7,11 +7,14 @@
 
 import UIKit
 
-class HeaderView: UIView {
-    var numberLabel, titleLabel: UILabel!
-    private var backgroundView: UIView!
-    var hintView: UIView!
-    var hint: String?
+class HeaderView: UIView, ItemIdentifiable {
+    private var numberLabel, titleLabel: UILabel!
+    private var backgroundView = UIView()
+    private var hintView = UIView()
+    private var hint: String?
+    private let padding: CGFloat = 5
+    
+    var itemID: ItemID!
    
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,14 +44,15 @@ class HeaderView: UIView {
         numberLabel.backgroundColor = .archoSecondaryColor
         numberLabel.textColor = .archoBackgroundColor
         numberLabel.textAlignment = .center
+        numberLabel.font = .systemFont(ofSize: 24)
         numberLabel.clipsToBounds = true
         
         titleLabel = UILabel()
         titleLabel.textAlignment = .left
         titleLabel.textColor = .archoSecondaryColor
+        titleLabel.font = .systemFont(ofSize: 16)
         titleLabel.numberOfLines = 0
-        
-        backgroundView = UIView()
+
         backgroundView.layer.cornerRadius = 5
         backgroundView.backgroundColor = .archoLightGray
         
@@ -59,18 +63,18 @@ class HeaderView: UIView {
     private func setUpConstraints() {
         UIView.doNotTranslateAutoLayout(for: numberLabel, titleLabel, backgroundView)
         NSLayoutConstraint.activate([
-            backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
-            backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
-            backgroundView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
+            backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            backgroundView.topAnchor.constraint(equalTo: self.topAnchor, constant: padding),
+            backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -padding),
             
             numberLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
-            numberLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor),
-            numberLabel.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor),
+            numberLabel.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
+            numberLabel.heightAnchor.constraint(equalToConstant: intrinsicContentSize.height - padding * 2),
             numberLabel.widthAnchor.constraint(equalTo: numberLabel.heightAnchor),
             
-            titleLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 5),
-            titleLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -5),
+            titleLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: padding),
+            titleLabel.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -padding),
             titleLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 0),
             titleLabel.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: 0)
         ])
@@ -79,7 +83,6 @@ class HeaderView: UIView {
     func configure(number: String, title: String, hint: String? = nil) {
         numberLabel.text = number
         titleLabel.text = title
-        
     }
 
 

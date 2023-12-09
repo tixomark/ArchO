@@ -11,6 +11,8 @@ import UIKit
 protocol MainVCInput {
     func goToProfileSection()
     func goToAuthSection()
+    func goToCardSection()
+    func showAuthAlert()
 }
 
 class MainVC: UIViewController {
@@ -86,7 +88,7 @@ class MainVC: UIViewController {
         coordinator.showMessagesScreen()
     }
     @objc func didTapOnCardButton(_ sender: UIButton) {
-        coordinator.showCardScreen()
+        interactor.didTapCardButton()
     }
     @objc func didTapOnSettingsButton(_ sender: UIButton) {
         coordinator.showSettingsScreen()
@@ -105,5 +107,25 @@ extension MainVC: MainVCInput {
         coordinator.showAuthScreen()
     }
     
+    func goToCardSection() {
+        coordinator.showCardScreen()
+    }
+    
+    func showAuthAlert() {
+        let title = "Only autorised members can create cards"
+        let message = "Do you vant to continue to the authorication screen?"
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel)
+        let authoriseAction = UIAlertAction(title: "Continue",
+                                            style: .default) { [self] _ in
+            coordinator.showAuthScreen()
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(authoriseAction)
+        present(alert, animated: true)
+    }
     
 }

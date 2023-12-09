@@ -7,8 +7,11 @@
 
 import UIKit
 
+protocol DateViewDelegate: AnyObject {
+    func dateView(_ dateView: DateView, dateDidChangeTo date: Date)
+}
 
-class DateView: UIView {
+class DateView: UIView, ItemIdentifiable {
     private var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -19,15 +22,20 @@ class DateView: UIView {
     
     private var datePicker: UIDatePicker = {
         let picker = UIDatePicker()
-        picker.datePickerMode = .date
         picker.maximumDate = .init(timeIntervalSinceNow: .zero)
         picker.preferredDatePickerStyle = .compact
+        picker.datePickerMode = .date
         return picker
     }()
+    
+    weak var delegate: DateViewDelegate?
+    
+    var itemID: ItemID!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpUI()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -42,24 +50,11 @@ class DateView: UIView {
     override var intrinsicContentSize: CGSize {
         return CGSize(width: TextView.noIntrinsicMetric, height: 46)
     }
-    
-//    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-//        if self.point(inside: point, with: event) {
-//            let pointWithinPicker = CGPoint(x: button.frame.origin.x + 10, y: button.frame.origin.y + 10)
-//            let newPoint = convert(pointWithinPicker, to: button.coordinateSpace)
-//            let hitTestView = button.hitTest(newPoint, with: event)
-//            return hitTestView
-//
-//        }
-//        return nil
-//    }
 
     private func setUpUI() {
         self.layer.cornerRadius = 5
         self.layer.borderColor = UIColor.archoSecondaryColor.cgColor
         self.layer.borderWidth = 1.5
-        
-        label.text = "выдерете дату"
         
         datePicker.addTarget(self, action: #selector(dateDidChange), for: .valueChanged)
         self.addSubviews(label, datePicker)
@@ -85,7 +80,8 @@ class DateView: UIView {
     }
     
     @objc private func dateDidChange(_ sender: UIDatePicker) {
-        print(sender.date)
+        let date = sender.date
+        delegate?.dateView(self, dateDidChangeTo: date)
     }
    
 }

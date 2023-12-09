@@ -21,7 +21,6 @@ protocol DBUserContactDataManagerProtocol {
 }
 
 protocol DBUserManagerProtocol: DBUserDataManagerProtocol, DBUserContactDataManagerProtocol {
-//    var user: DBUser? {get}
 }
 
 class DBUserManager: DBUserManagerProtocol, ServiceProtocol {
@@ -83,7 +82,8 @@ extension DBUserManager {
 
 // MARK: - DBUserContactDataManagerProtocol methods
 extension DBUserManager {
-    func setContactData(_ data: DBUserContactData, forUser uid: String) {
+    func setContactData(_ data: DBUserContactData, 
+                        forUser uid: String) {
         do {
             try userContactDocument(uid: uid).setData(from: data, merge: true, encoder: userEncoder) { error in
                 print(error?.localizedDescription ?? "")
@@ -93,7 +93,8 @@ extension DBUserManager {
         }
     }
     
-    func getContactData(forUser uid: String, completion: @escaping  (DBUserContactData) -> ()) {
+    func getContactData(forUser uid: String, 
+                        completion: @escaping  (DBUserContactData) -> ()) {
         userContactDocument(uid: uid).getDocument { snapshot, error in
             do {
                 let userContactData = try snapshot?.data(as: DBUserContactData.self, decoder: self.userDecoder)
@@ -104,7 +105,8 @@ extension DBUserManager {
         }
     }
     
-    func updateContactData(_ data: DBUserContactData, forUser uid: String) {
+    func updateContactData(_ data: DBUserContactData, 
+                           forUser uid: String) {
         do {
             let fields = try userEncoder.encode(data)
             userContactDocument(uid: uid).updateData(fields)
@@ -113,21 +115,3 @@ extension DBUserManager {
         }
     }
 }
-
-
-
-//
-//    func updateUserContactData(userId: String, data: DBUserContactData) {
-//        //        var contactDataDict: [String: Any] = [:]
-//        //        do {
-//        //            contactDataDict = try userEncoder.encode(data)
-//        //        } catch let error {
-//        //            print(error.localizedDescription)
-//        //            return
-//        //        }
-//        //        let contactDataKey = DBUser.CodingKeys.contactData.rawValue
-//        //        let contactDataContainer = [contactDataKey : contactDataDict]
-//        //        userDocument(uid: userId).updateData(contactDataContainer) { error in
-//        //            print(error?.localizedDescription)
-//        //        }
-//    }

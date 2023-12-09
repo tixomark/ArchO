@@ -8,8 +8,10 @@
 import UIKit
 
 class PickerItem: UIView {
-    var header: HeaderView!
-    var pickerView: PickerView!
+    var header = HeaderView()
+    var pickerView = PickerView()
+    
+    var itemID: ItemID!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,8 +28,6 @@ class PickerItem: UIView {
     }
     
     private func setUpUI() {
-        header = HeaderView()
-        pickerView = PickerView()
         self.addSubviews(header, pickerView)
     }
     
@@ -45,6 +45,25 @@ class PickerItem: UIView {
             pickerView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
+}
+
+extension PickerItem: ItemProtocol {
+    func configure(data: [PersistentDataContainer]) {
+        data.forEach { itemData in
+            switch itemData {
+            case let .header(number, title, hint):
+                header.configure(number: number, title: title, hint: hint)
+                header.itemID = itemID
+            case let .picker(annotation, options, initialOption, _):
+                pickerView.configure(text: initialOption, annotation: annotation, options: options)
+                pickerView.itemID = itemID
+            default:
+                return
+            }
+        }
+    }
     
-    
+    func assign(delegateTo delegate: AnyObject, dataSourceTo dataSource: AnyObject) {
+        pickerView.delegate = (delegate as? PickerViewDelegate)
+    }
 }

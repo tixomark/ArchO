@@ -15,44 +15,55 @@ class CardPVC: UIPageViewController {
     weak var coordinator: CardCoordinatorProtocol!
     var interactor: CardInteractorInput!
     var pages: [UIViewController] = []
+    private var closeButton: UIBarButtonItem!
+    private var doneButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpUI()
     }
+
     
-    override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
-        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal)
-        pages = [MainInfoVC(), ListOfWorksVC(),
-                 HistoricalBackgroundVC(), AdditionalInfoVC()]
-        setViewControllers([pages[0]], direction: .forward, animated: true)
-        self.dataSource = self
-        self.delegate = self
+    convenience init(viewControllers: [UIViewController]) {
+        self.init(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        pages = viewControllers
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     
     private func setUpUI() {
         view.backgroundColor = .archoBackgroundColor
+        self.dataSource = self
+        self.delegate = self
+        
+        closeButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancelButton))
+        navigationItem.leftBarButtonItem = closeButton
+        
+        doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneButton))
+        navigationItem.rightBarButtonItem = doneButton
+        
+        setViewControllers([pages[0]], direction: .forward, animated: true)
     }
     
     deinit {
         print("deinit CardPVC")
     }
+    
+    @objc func didTapCancelButton() {
+        coordinator.dismissModule()
+    }
+    
+    @objc func didTapDoneButton() {
+        interactor.loadCard()
+    }
 
 }
 
 extension CardPVC: CardPVCInput {
-
     
 }
 
 extension CardPVC: UIPageViewControllerDataSource {
-    
     var pagesAmount: Int {
         return pages.count
     }
@@ -75,5 +86,18 @@ extension CardPVC: UIPageViewControllerDataSource {
 extension CardPVC: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
 
+    }
+}
+
+extension CardPVC: ResponderAction {
+    func showPicker(_ sender: PickerProtocol) {
+        switch sender {
+        case is FilePicker:
+            self.present((sender as! FilePicker).picker, animated: true)
+        case is ImagePicker:
+            self.present((sender as! ImagePicker).picker, animated: true)
+        default:
+            print("Some unknown picker")
+        }
     }
 }

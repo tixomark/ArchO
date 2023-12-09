@@ -7,7 +7,12 @@
 
 import UIKit
 
-class TextView: UIView {
+protocol TextViewDelegate: AnyObject {
+    func textDidChangeIn(_ textView: TextView, text: String)
+    func textDidEndEditingIn(_ textView: TextView)
+}
+
+class TextView: UIView, ItemIdentifiable {
     var textView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 16)
@@ -19,6 +24,10 @@ class TextView: UIView {
     }()
     var placeholder: String?
     private var isShowingPlaceholder = true
+    
+    var itemID: ItemID!
+    
+    weak var delegate: TextViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -77,7 +86,9 @@ class TextView: UIView {
 
 extension TextView: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        textView.sizeToFit()
+        if !isShowingPlaceholder {
+            delegate?.textDidChangeIn(self, text: textView.text)
+        }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -85,10 +96,12 @@ extension TextView: UITextViewDelegate {
         
         if updatedText.isEmpty {
             showPlaceholder()
+            delegate?.textDidChangeIn(self, text: "")
         } else if isShowingPlaceholder && !text.isEmpty {
             isShowingPlaceholder = false
             textView.textColor = UIColor.black
             textView.text = text
+            delegate?.textDidChangeIn(self, text: text)
         } else {
             return true
         }
@@ -99,6 +112,10 @@ extension TextView: UITextViewDelegate {
         if isShowingPlaceholder {
             textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument , to: textView.beginningOfDocument)
         }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        delegate?.textDidEndEditingIn(self)
     }
 
 }

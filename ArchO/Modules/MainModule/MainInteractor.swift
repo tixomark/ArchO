@@ -9,6 +9,7 @@ import Foundation
 
 protocol MainInteractorInput {
     func didTapUserIcon()
+    func didTapCardButton()
 }
 
 extension MainInteractor: ServiceObtainable {
@@ -28,6 +29,13 @@ class MainInteractor {
 
 extension MainInteractor: MainInteractorInput {
     func didTapUserIcon() {
-        presenter.showModuleAccordingToUserAuthState(authService.isUserAuthed)
+        let authState = authService.isUserAuthed
+        presenter.didRecieveTapOnUserIcon(authState)
+    }
+    
+    func didTapCardButton() {
+        let authState = authService.isUserAuthed
+        presenter.didRecieveTapOnCardIcon(authState: authState)
+        
     }
 }
