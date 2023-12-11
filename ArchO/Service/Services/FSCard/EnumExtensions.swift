@@ -24,7 +24,7 @@ extension TypologicalAffilation: Codable {
     }
     
     init(from decoder: Decoder) throws {
-        var container = try decoder.singleValueContainer()
+        let container = try decoder.singleValueContainer()
         let decodedValue = try container.decode(String.self)
         var value: TypologicalAffilation?
         switch decodedValue {
@@ -57,7 +57,7 @@ extension ProtectedStatusOKN: Codable {
     }
     
     init(from decoder: Decoder) throws {
-        var container = try decoder.singleValueContainer()
+        let container = try decoder.singleValueContainer()
         let decodedValue = try container.decode(String.self)
         var value: ProtectedStatusOKN?
         switch decodedValue {
@@ -91,7 +91,7 @@ extension TecnicalCondition: Codable {
     }
     
     init(from decoder: Decoder) throws {
-        var container = try decoder.singleValueContainer()
+        let container = try decoder.singleValueContainer()
         let decodedValue = try container.decode(String.self)
         var value: TecnicalCondition?
         switch decodedValue {
@@ -123,7 +123,7 @@ extension StageOfWork: Codable {
     }
     
     init(from decoder: Decoder) throws {
-        var container = try decoder.singleValueContainer()
+        let container = try decoder.singleValueContainer()
         let decodedValue = try container.decode(String.self)
         var value: StageOfWork?
         switch decodedValue {
@@ -152,7 +152,7 @@ extension PhotoFixationKind: Codable {
     }
     
     init(from decoder: Decoder) throws {
-        var container = try decoder.singleValueContainer()
+        let container = try decoder.singleValueContainer()
         let decodedValue = try container.decode(String.self)
         var value: PhotoFixationKind?
         switch decodedValue {

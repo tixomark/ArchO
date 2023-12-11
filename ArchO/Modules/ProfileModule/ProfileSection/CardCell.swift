@@ -19,5 +19,7 @@ class CardCell: UITableViewCell {
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0))
     }
     
-    
+    func configure(title: String) {
+        titleLabel.text = title
+    }
 }

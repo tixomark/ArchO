@@ -54,7 +54,7 @@ class CardPVC: UIPageViewController {
     }
     
     @objc func didTapDoneButton() {
-        interactor.loadCard()
+        interactor.didTapCreateCardButton()
     }
 
 }

@@ -12,6 +12,8 @@ import FirebaseFirestoreSwift
 protocol DBUserDataManagerProtocol {
     func setData(forUser user: DBUser)
     func getData(forUser uid: String)
+    
+    func addCard(_ cardID: String, forUser userID: String) async
 }
 
 protocol DBUserContactDataManagerProtocol {
@@ -77,6 +79,17 @@ extension DBUserManager {
 //                print(error.localizedDescription)
 //            }
 //        }
+    }
+    
+    func addCard(_ cardID: String, forUser userID: String) async {
+        let userRef = userDocument(uid: userID)
+        let data = ["owned_cards": FieldValue.arrayUnion([cardID])]
+        do {
+            try await userRef.updateData(data)
+            
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 

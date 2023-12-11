@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct FirebaseCard: Codable {
+struct DBCard: Codable {
     
     // MARK:  ITEMS 1-3
     var fullName: String?
@@ -50,7 +50,7 @@ struct FirebaseCard: Codable {
     var preservationProposials: String?
     var comments: String?
 }
-extension FirebaseCard {
+extension DBCard {
     init(from data: CardData) {
         // MARK:  ITEMS 1-3
         fullName = data.texts[.item1]

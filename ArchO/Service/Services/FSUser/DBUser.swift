@@ -8,7 +8,6 @@
 import Foundation
 import Firebase
 import FirebaseAuth
-import FirebaseFirestore
 
 struct DBUser: Codable {
     var id: String
@@ -17,9 +16,10 @@ struct DBUser: Codable {
     var photoUrl: URL?
     var creationDate: Timestamp
     var contactData: DBUserContactData?
+    var userCards: [String]?
 
     enum CodingKeys: String, CodingKey {
-        case id, isEmailVerified, isAnonymous, photoUrl, creationDate
+        case id, isEmailVerified, isAnonymous, photoUrl, creationDate, userCards
     }
 }
 

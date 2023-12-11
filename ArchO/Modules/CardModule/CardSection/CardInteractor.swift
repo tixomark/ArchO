@@ -10,22 +10,26 @@ import UIKit
 
 protocol CardInteractorInput: AnyObject {
     func viewLoaded(_ view: Views)
-    func loadCard()
+    func didTapCreateCardButton()
 }
 
 extension CardInteractor: ServiceObtainable {
     var neededServices: [Service] {
-        [.cardManager]
+        [.cardManager, .auth, .userManager]
     }
     
     func addServices(_ services: [Service : ServiceProtocol]) {
         cardManager = (services[.cardManager] as! DBCardManagerProtocol)
+        auth = (services[.auth] as! FBAuthProtocol)
+        userManager = (services[.userManager] as! DBUserManagerProtocol)
     }
 }
 
 class CardInteractor {
     var presenter: CardPresenterInput!
     var cardManager: DBCardManagerProtocol!
+    var auth: FBAuthProtocol!
+    var userManager: DBUserManagerProtocol!
     
     var variableData = CardData()
     
@@ -35,11 +39,17 @@ class CardInteractor {
 }
 
 extension CardInteractor: CardInteractorInput {
-    func loadCard() {
-        cardManager.loadCardToDB(variableData) { success in
-            if success {
-                
-            }
+    func didTapCreateCardButton() {
+        guard let ownerID = auth.curentUserID else {
+            print("CardInteractor.didTapCreateCardButton: No authenticated user")
+            return
+        }
+        Task(priority: .userInitiated) {
+            let createdCardID = await self.cardManager.loadCardToDB(variableData, ownerID: ownerID)
+            
+            print(createdCardID ?? "")
+            guard let createdCardID else { return }
+            await userManager.addCard(createdCardID, forUser: ownerID)
         }
     }
     

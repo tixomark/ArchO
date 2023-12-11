@@ -21,3 +21,9 @@ class CardData {
         var description: String?
     }
 }
+
+extension CardData {
+    func getTitle() -> String? {
+        texts[.item4]
+    }
+}

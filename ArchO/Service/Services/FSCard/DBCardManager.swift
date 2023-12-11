@@ -11,24 +11,24 @@ import FirebaseFirestoreSwift
 import FirebaseStorage
 
 protocol DBCardManagerProtocol {
-    func loadCardToDB(_ data: CardData, completion: @escaping (Bool) -> ())
+    func loadCardToDB(_ data: CardData, ownerID: String) async -> String?
 }
 
-class DBCardManager: ServiceProtocol {
+final class DBCardManager: ServiceProtocol {
     var description: String = "FirestoreDB"
-    
-    private var dbCardQueue = DispatchQueue(label: "com.dbCard.queue", qos: .userInitiated, attributes: .concurrent)
+    //    private var dbCardQueue = DispatchQueue(label: "com.dbCard.queue", qos: .userInitiated, attributes: .concurrent)
     
     private let db: Firestore = Firestore.firestore()
     private let storage: Storage = Storage.storage()
     private lazy var cardsRef = db.collection("cards")
+    private lazy var cardsInfoRef = db.collection("cards_info")
     private lazy var cardsDataStoreRef = storage.reference().child("cardsData")
+    
     private var cardEncoder: Firestore.Encoder {
         let encoder = Firestore.Encoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
         return encoder
     }
-    
     private var cardDecoder: Firestore.Decoder {
         let decoder = Firestore.Decoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -45,18 +45,23 @@ class DBCardManager: ServiceProtocol {
 }
 
 extension DBCardManager: DBCardManagerProtocol {
-    func loadCardToDB(_ data: CardData, 
-                      completion: @escaping (Bool) -> ()) {
-        Task(priority: .high) {
-            let cardRef = cardsRef.document()
-            
-            let attachements = await uploadCardAttachements(cardData: data, cardRef: cardRef)
-            let result = await uploadCard(data, toRef: cardRef, attachements: attachements)
-            completion(result)
-        }
+    func loadCardToDB(_ cardData: CardData, ownerID: String) async -> String? {
+        let cardRef = cardsRef.document()
+        let attachements = await uploadCardAttachements(cardData: cardData,
+                                                        cardRef: cardRef)
+        async let cardResult = uploadCard(cardData,
+                                      toRef: cardRef,
+                                      attachements: attachements)
+        let cardInfoData = DBCardInfo(id: cardRef.documentID,
+                                      ownerID: ownerID,
+                                      card: cardData)
+        async let cardInfoResult = loadCardInfo(cardInfoData)
+        
+        let (card, cardInfo) = await (cardResult, cardInfoResult)
+        return (card && cardInfo) ? cardRef.documentID : nil
     }
     
-    private func uploadCardAttachements(cardData data: CardData, 
+    private func uploadCardAttachements(cardData data: CardData,
                                         cardRef ref: DocumentReference) async -> [ItemID: [String]] {
         let imagesRef = imagesRefFor(ref.documentID)
         let filesRef = filesRefFor(ref.documentID)
@@ -64,7 +69,8 @@ extension DBCardManager: DBCardManagerProtocol {
         async let firstBatch = Task(priority: .userInitiated) { () -> [ItemID: [String]] in
             var urls: [ItemID: [String]] = [:]
             for (key, images) in data.loadViewImages {
-                let paths = await uploadImages(images, toDirectory: imagesRef)
+                let paths = await uploadImages(images,
+                                               toDirectory: imagesRef)
                 urls[key] = paths
             }
             return urls
@@ -76,7 +82,8 @@ extension DBCardManager: DBCardManagerProtocol {
                 let images = items.map { item in
                     return item.image
                 }
-                let paths = await uploadImages(images, toDirectory: imagesRef)
+                let paths = await uploadImages(images,
+                                               toDirectory: imagesRef)
                 urls[key] = paths
             }
             return urls
@@ -85,27 +92,29 @@ extension DBCardManager: DBCardManagerProtocol {
         async let thirdBatch = Task(priority: .userInitiated) { () -> [ItemID: [String]] in
             var urls: [ItemID: [String]] = [:]
             for (key, items) in data.loadViewFiles {
-                let paths = await uploadFiles(items, ref: filesRef)
+                let paths = await uploadFiles(items,
+                                              ref: filesRef)
                 urls[key] = paths
             }
             return urls
         }
         
-        var result = await [firstBatch.value, secondBatch.value, thirdBatch.value]
-        var attachementUrls: [ItemID: [String]] = result.reduce(into: [:]) { partialResult, subDictionary in
+        let result = await [firstBatch.value, secondBatch.value, thirdBatch.value]
+        let attachementUrls: [ItemID: [String]] = result.reduce(into: [:]) { tempResult, subDictionary in
             subDictionary.forEach { key, value in
-                partialResult[key] = value
+                tempResult[key] = value
             }
         }
         return attachementUrls
     }
     
-    private func uploadImages(_ images: [UIImage?], 
+    private func uploadImages(_ images: [UIImage?],
                               toDirectory ref: StorageReference) async -> [String] {
         let result = await withTaskGroup(of: (Int, String?).self) { group -> [String] in
             for (index, image) in images.enumerated() {
                 group.addTask(priority: .userInitiated) {
-                    let imageName = await self.uploadImage(image, toDirectory: ref)
+                    let imageName = await self.uploadImage(image,
+                                                           toDirectory: ref)
                     return (index, imageName)
                 }
             }
@@ -133,16 +142,16 @@ extension DBCardManager: DBCardManagerProtocol {
         return imageName
     }
     
-    private func uploadFiles(_ urls: [URL], 
+    private func uploadFiles(_ urls: [URL],
                              ref: StorageReference) async -> [String] {
         
         return []
     }
     
-    private func uploadCard(_ data: CardData, 
+    private func uploadCard(_ data: CardData,
                             toRef ref: DocumentReference,
                             attachements: [ItemID: [String]]) async -> Bool {
-        var FBCard = FirebaseCard(from: data)
+        var FBCard = DBCard(from: data)
         FBCard.insertAttachements(attachements)
         
         var result = false
@@ -155,4 +164,23 @@ extension DBCardManager: DBCardManagerProtocol {
         }
         return result
     }
+    
+    private func loadCardInfo(_ data: DBCardInfo) async -> Bool {
+        var result = false
+        guard let id = data.id else {
+            print("DBCardManager.loadCardInfo: Can not get cardID")
+            return result
+        }
+        let ref = cardsInfoRef.document(id)
+        do {
+            let encodedData = try cardEncoder.encode(data)
+            try await ref.setData(encodedData)
+            result = true
+        } catch {
+            print(error.localizedDescription)
+        }
+        return result
+    }
+    
+    
 }
