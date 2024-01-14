@@ -455,8 +455,8 @@
 			children = (
 				9DC48FD22A4EC12F0021362D /* DBCardManager.swift */,
 				9D0BE32B2AF2B2F1004E756F /* DBCard.swift */,
-				9DC7280C2B2265A000681737 /* EnumExtensions.swift */,
 				9D1BB1B22B2736D800F778B6 /* DBCardInfo.swift */,
+				9DC7280C2B2265A000681737 /* EnumExtensions.swift */,
 			);
 			path = FSCard;
 			sourceTree = "<group>";

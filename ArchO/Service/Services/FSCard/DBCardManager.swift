@@ -15,8 +15,7 @@ protocol DBCardManagerProtocol {
 }
 
 final class DBCardManager: ServiceProtocol {
-    var description: String = "FirestoreDB"
-    //    private var dbCardQueue = DispatchQueue(label: "com.dbCard.queue", qos: .userInitiated, attributes: .concurrent)
+    var description: String = "DBCardManager"
     
     private let db: Firestore = Firestore.firestore()
     private let storage: Storage = Storage.storage()

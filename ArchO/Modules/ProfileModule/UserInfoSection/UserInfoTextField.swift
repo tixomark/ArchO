@@ -13,10 +13,17 @@ protocol UserInfoTFDelegate: AnyObject {
     func indicatorSwitched(to value: Bool)
 }
 
-class UserInfoTextField: UIView {
+final class UserInfoTextField: UIView {
     var textField: UITextField!
     var isSelected: Bool = false
-    var indicatorView: UIView!
+    var indicatorView: UIView = {
+        var view = UIView()
+        view.layer.cornerRadius = 5
+        view.layer.borderColor = UIColor.archoSecondaryColor.cgColor
+        view.layer.borderWidth = 1
+        return view
+    }()
+    
     weak var delegate: UserInfoTFDelegate?
 
     init() {
@@ -51,11 +58,7 @@ class UserInfoTextField: UIView {
         textField = UITextField()
         textField.autocapitalizationType = .words
         
-        indicatorView = UIView()
         indicatorView.backgroundColor = isSelected ? .archoTurquoise : .archoBackgroundColor
-        indicatorView.layer.cornerRadius = 5
-        indicatorView.layer.borderColor = UIColor.archoSecondaryColor.cgColor
-        indicatorView.layer.borderWidth = 1
     
         self.addSubviews(textField, indicatorView)
     }

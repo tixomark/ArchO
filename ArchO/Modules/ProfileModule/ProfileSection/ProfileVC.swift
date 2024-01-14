@@ -16,10 +16,35 @@ class ProfileVC: UIViewController {
     weak var coordinator: ProfileCoordinatorProtocol!
     var interactor: ProfileInteractorInput!
     
-    var userImage: UIImageView!
+    var userImage: UIImageView = {
+        var view = UIImageView()
+        view.image = UIImage(.profileIcon)
+        view.contentMode = .scaleAspectFit
+        view.clipsToBounds = true
+        return view
+    }()
+    var editButton: UIButton = {
+        var button = UIButton()
+        button.setTitle("Править", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 18
+        button.layer.borderWidth = 1
+        return button
+    }()
+    var signOutButton: UIButton = {
+        var button = UIButton()
+        button.setTitle("Выйти", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 18
+        button.layer.borderWidth = 1
+        return button
+    }()
     var tableHeaderLabel: UILabel!
-    var editButton, signOutButton: UIButton!
-    var cardTable: UITableView!
+    var cardTable: UITableView = {
+        var table = UITableView()
+        table.separatorStyle = .none
+        return table
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,55 +64,39 @@ class ProfileVC: UIViewController {
     }
     
     private func setUpUI() {
-        userImage = UIImageView()
-        userImage.image = UIImage(.profileIcon)
-        userImage.contentMode = .scaleAspectFit
-        userImage.clipsToBounds = true
-        
-        editButton = UIButton()
-        editButton.setTitle("Править", for: .normal)
-        editButton.setTitleColor(.black, for: .normal)
-        editButton.layer.cornerRadius = 18
-        editButton.layer.borderWidth = 1
-        editButton.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
-        
-        signOutButton = UIButton()
-        signOutButton.setTitle("Выйти", for: .normal)
-        signOutButton.setTitleColor(.black, for: .normal)
-        signOutButton.layer.cornerRadius = 18
-        signOutButton.layer.borderWidth = 1
-        signOutButton.addTarget(self, action: #selector(didTapSignOutButton(_:)), for: .touchUpInside)
-        
         tableHeaderLabel = UILabel()
         tableHeaderLabel.text = "Карты пользователя"
         tableHeaderLabel.frame.size.height = 20
         
-        cardTable = UITableView()
+        editButton.addTarget(self, action: #selector(didTapEditButton(_:)), for: .touchUpInside)
+        signOutButton.addTarget(self, action: #selector(didTapSignOutButton(_:)), for: .touchUpInside)
+        
         cardTable.delegate = self
         cardTable.dataSource = self
-        cardTable.separatorStyle = .none
         
         view.addSubviews(userImage, editButton, signOutButton, tableHeaderLabel, cardTable)
-        
-        
     }
     
     private func setUpConstraints() {
-        view.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        UIView.doNotTranslateAutoLayout(for: userImage, editButton, signOutButton, tableHeaderLabel, cardTable)
         
         NSLayoutConstraint.activate([
             userImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
             userImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             userImage.heightAnchor.constraint(equalToConstant: 72),
             userImage.widthAnchor.constraint(equalTo: userImage.heightAnchor),
+            
             editButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
             editButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 36),
             editButton.heightAnchor.constraint(equalToConstant: 36),
+            
             signOutButton.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 16),
             signOutButton.centerXAnchor.constraint(equalTo: editButton.centerXAnchor),
             signOutButton.heightAnchor.constraint(equalToConstant: 36),
+            
             tableHeaderLabel.topAnchor.constraint(equalTo: signOutButton.bottomAnchor, constant: 16),
             tableHeaderLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
             cardTable.topAnchor.constraint(equalTo: tableHeaderLabel.bottomAnchor, constant: 5),
             cardTable.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             cardTable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
@@ -100,7 +109,7 @@ class ProfileVC: UIViewController {
     }
     
     @objc func didTapSignOutButton(_ sender: UIButton) {
-        interactor.requestUserSignOut()
+        interactor.didTapSignOutButton()
     }
 }
 
